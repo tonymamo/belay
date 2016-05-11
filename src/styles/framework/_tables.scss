@@ -1,0 +1,193 @@
+//
+// Basic Bootstrap table
+//
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $spacer;
+  background-color: $white;
+
+  th,
+  td {
+    padding: $table-cell-padding;
+    line-height: $line-height;
+    vertical-align: middle;
+    border-top: $border-width solid $table-border-color;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: ($border-width * 2) solid $table-border-color;
+  }
+
+  tbody + tbody {
+    border-top: ($border-width * 2) solid $table-border-color;
+  }
+
+  .table {
+    background-color: $body-bg;
+  }
+}
+
+
+//
+// Condensed table w/ half padding
+//
+
+.table--sm {
+  th,
+  td {
+    padding: $table-sm-cell-padding;
+  }
+}
+
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table--bordered {
+  border: $border-width solid $table-border-color;
+
+  th,
+  td {
+    border: $border-width solid $table-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: ($border-width * 2);
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table--striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table--hover {
+  tbody tr {
+    @include hover {
+      background-color: $table-bg-hover;
+    }
+  }
+}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table--striped` and prevent
+// inheritance to nested tables.
+
+// Generate the contextual variants
+@include table-row-variant(active, $table-bg-active, $text-dark);
+@include table-row-variant(success, $state-success-bg, $state-success-text);
+@include table-row-variant(info, $state-info-bg, $state-info-text);
+@include table-row-variant(warning, $state-warning-bg, $state-warning-text);
+@include table-row-variant(danger, $state-danger-bg, $state-danger-text);
+
+
+// Responsive tables
+//
+// Wrap your tables in `.responsive-table` and we'll make them mobile friendly
+// by enabling horizontal scrolling. 
+
+.responsive-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border: $border-width solid $table-border-color;
+  margin-bottom: $spacer;
+
+  & .table {
+    margin: 0;
+  }
+}
+
+
+.thead--inverse {
+  th {
+    color: $text-light;
+    background-color: $gray-dark;
+  }
+}
+.thead--default {
+  th {
+    color: $gray;
+    background-color: $gray-lighter;
+  }
+}
+
+.table--inverse {
+  color: $gray-lighter;
+  background-color: $gray-dark;
+
+  &.table--bordered {
+    border: 0;
+  }
+
+  th,
+  td,
+  thead th {
+    border-color: $gray;
+  }
+}
+
+
+.table--reflow {
+  thead {
+    float: left;
+  }
+
+  tbody {
+    display: block;
+    white-space: nowrap;
+  }
+
+  th,
+  td {
+    border-top: $border-width solid $table-border-color;
+    border-left: $border-width solid $table-border-color;
+
+    &:last-child {
+      border-right: $border-width solid $table-border-color;
+    }
+  }
+
+  thead,
+  tbody,
+  tfoot {
+    &:last-child {
+      tr:last-child {
+        th,
+        td {
+          border-bottom: $border-width solid $table-border-color;
+        }
+      }
+    }
+  }
+
+  tr {
+    float: left;
+
+    th,
+    td {
+      display: block !important;
+      border: $border-width solid $table-border-color;
+    }
+  }
+}

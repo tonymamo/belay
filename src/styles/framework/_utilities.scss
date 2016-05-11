@@ -1,0 +1,152 @@
+//
+// Floats
+//
+.clearfix {
+  @include clearfix();
+}
+
+.center-block {
+  @include center-block();
+}
+
+.float-right {
+  @include float-right();
+}
+
+.float-left {
+  @include float-left();
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    .float-left--#{$breakpoint}  { @include float-left(); }
+    .float-right--#{$breakpoint} { @include float-right(); }
+  }
+}
+
+
+
+
+
+//
+// Screenreaders
+//
+.sr-only {
+  @include sr-only();
+}
+
+.sr-only--focusable {
+  @include sr-only-focusable();
+}
+
+// Always hide an element with the `hidden` HTML attribute (from PureCSS).
+[hidden],
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.text--hide {
+  @include text-hide();
+}
+
+
+
+
+
+//
+// Text
+//
+
+// Alignment
+.align--left          { text-align: left; }
+.align--right         { text-align: right; }
+.align--center        { text-align: center; }
+.align--justify       { text-align: justify; }
+.text--nowrap         { white-space: nowrap; }
+.text--word-break     { word-break: break-word; }
+.text--truncate       { @include text-truncate; }
+
+// Responsive alignment
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    .align--#{$breakpoint}-left   { text-align: left; }
+    .align--#{$breakpoint}-right  { text-align: right; }
+    .align--#{$breakpoint}-center { text-align: center; }
+  }
+}
+
+// Transformation
+.text--lowercase      { text-transform: lowercase; }
+.text--uppercase      { text-transform: uppercase; }
+.text--capitalize     { text-transform: capitalize; }
+
+// Contextual colors
+.text-light {
+  color: $text-light;
+}
+
+.text-dark {
+  color: $text-dark;
+}
+
+.text--muted {
+  color: $text-muted;
+}
+
+@include text-emphasis-variant('.text--primary', $brand-primary);
+@include text-emphasis-variant('.text--secondary', $brand-secondary);
+@include text-emphasis-variant('.text--success', $brand-success);
+@include text-emphasis-variant('.text--info', $brand-info);
+@include text-emphasis-variant('.text--warning', $brand-warning);
+@include text-emphasis-variant('.text--danger', $brand-danger);
+
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.background--faded {
+  background-color: $gray-lightest;
+}
+
+@include bg-variant('.background--primary', $brand-primary);
+@include bg-variant('.background--success', $brand-success);
+@include bg-variant('.background--info', $brand-info);
+@include bg-variant('.background--warning', $brand-warning);
+@include bg-variant('.background--danger', $brand-danger);
+
+
+
+
+
+//
+// Horizontal List Abstraction
+//
+.horizontal-list {
+  list-style: none;
+  margin: 0;
+}
+
+.horizontal-list li,
+.horizontal-list li a {
+  display: inline-block;
+}
+
+
+
+
+
+//
+// Fixed positioning
+//
+.position-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: $zindex-navbar-fixed;
+}

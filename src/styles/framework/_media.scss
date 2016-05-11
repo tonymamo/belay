@@ -1,0 +1,98 @@
+@if $enable-flex {
+  .media {
+    display: flex;
+    margin-bottom: $spacer;
+  }
+  .media__body {
+    flex: 1;
+    word-break: break-word;
+  }
+  .media__object {
+    &--inverse {
+      order: 2;
+    }
+    &--middle {
+      align-self: center;
+    }
+    &--bottom {
+      align-self: flex-end;
+    }
+  }
+} @else {
+  .media {
+    margin-top: 15px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .media,
+  .media__body {
+    overflow: hidden;
+    zoom: 1;
+  }
+  .media__body {
+    width: 10000px;
+  }
+  .media__object,
+  .media__body {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .media__object--middle {
+    vertical-align: middle;
+  }
+  .media__object--bottom {
+    vertical-align: bottom;
+  }
+  .media__object {
+    // Fix collapse in webkit from max-width: 100% and display: table-cell.
+    &.img--thumbnail {
+      max-width: none;
+    }
+  }
+}
+
+
+//
+// Images/elements as the media anchor
+//
+
+.media__object > * {
+  // Force things inside object to have width/height if needed
+  display: block;
+}
+
+
+//
+// Alignment
+//
+
+.media__object {
+  padding-right: 10px;
+}
+
+.media__object--inverse {
+  padding-left: 10px;
+  padding-right: 0;
+}
+
+
+//
+// Headings
+//
+
+.media__heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+
+//
+// Media list variation
+//
+
+.media--list {
+  padding-left: 0;
+  list-style: none;
+}

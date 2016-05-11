@@ -1,0 +1,23 @@
+.breadcrumb {
+  color: $breadcrumb-active-color;
+  padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+  margin-bottom: $spacer-y;
+  list-style: none;
+  background-color: $breadcrumb-bg;
+  @include border-radius($border-radius);
+}
+
+.breadcrumb__item {
+  display: inline-block;
+
+  + .breadcrumb__item:before {
+    $nbsp: "\00a0";
+    padding: 0 $half-spacer;
+    color: $breadcrumb-divider-color;
+    content: "#{$breadcrumb-divider}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
+  }
+}
+
+.breadcrumb__item--active {
+  color: $breadcrumb-active-color;
+}

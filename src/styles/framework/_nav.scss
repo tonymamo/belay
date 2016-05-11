@@ -1,0 +1,162 @@
+// Base class
+//
+// Kickstart any navigation component with a set of style resets. Works with
+// `<nav>`s or `<ul>`s.
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav__link {
+  display: inline-block;
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  // Disabled state lightens text and removes hover/tab effects
+  &--disabled {
+    color: $nav-disabled-link-color;
+
+    @include plain-hover-focus {
+      color: $nav-disabled-link-hover-color;
+      cursor: $cursor-disabled;
+      background-color: transparent;
+    }
+  }
+}
+
+
+// Nav inline
+
+.nav--inline {
+  .nav__link + .nav__link {
+    margin-left: $spacer;
+  }
+}
+
+
+//
+// Tabs
+//
+
+.nav--tabs {
+  border-bottom: $border-width solid $nav-tabs-border-color;
+  @include clearfix();
+
+  .nav__item {
+    float: none;
+    margin-bottom: $half-spacer;
+
+    @include media-breakpoint-up(md) {
+      float: left;
+      // Make the list-items overlay the bottom border
+      margin-bottom: -$border-width;
+
+      + .nav__item {
+        margin-left: $spacer / 4;
+      }
+    }
+  }
+
+  .nav__link {
+    display: block;
+    padding: $nav-link-padding;
+    border: $border-width solid transparent;
+    @include border-radius($border-radius);
+
+    @include media-breakpoint-up(md) {
+      @include border-radius($border-radius $border-radius 0 0);
+    }
+
+    @include hover-focus {
+      border-color: $nav-tabs-link-hover-border-color;
+    }
+
+    &--disabled {
+      @include plain-hover-focus {
+        color: $nav-disabled-link-color;
+        background-color: transparent;
+        border-color: transparent;
+      }
+    }
+  }
+
+  .nav__link--active,
+  .nav__item--open .nav__link {
+    @include plain-hover-focus {
+      color: $nav-tabs-active-link-hover-color;
+      background-color: $nav-tabs-active-link-hover-bg;
+      border-color: $nav-tabs-active-link-hover-border-color;
+      @include media-breakpoint-up(md) {
+        border-color: $nav-tabs-active-link-hover-border-color $nav-tabs-active-link-hover-border-color transparent;
+      }
+
+    }
+  }
+}
+
+
+//
+// Pills
+//
+
+.nav--pills {
+  .nav__item {
+    float: left;
+
+    + .nav__item {
+      margin-left: $spacer / 4;
+    }
+  }
+
+  .nav__link {
+    display: block;
+    padding: $nav-link-padding;
+    @include border-radius($nav-pills-border-radius);
+  }
+
+  .nav__link--active,
+  .nav__item--open .nav__link {
+    @include plain-hover-focus {
+      color: $component-active-color;
+      cursor: default;
+      background-color: $component-active-bg;
+    }
+  }
+}
+
+.nav--stacked {
+  .nav__item {
+    display: block;
+    float: none;
+
+    + .nav__item {
+      margin-top: $spacer / 4;
+      margin-left: 0;
+    }
+  }
+}
+
+
+//
+// Tabbable tabs
+//
+
+// Hide tabbable panes to start, show them when `.active`
+.tab-content {
+  border: $border-width solid $base-border-color;
+  border-top: none;
+  border-radius: 0 0 $border-radius $border-radius;
+  background-color: $nav-tabs-active-link-hover-bg;
+
+  > .tab-content__pane {
+    display: none;
+    padding: $spacer;
+  }
+  > .tab-content__pane--active {
+    display: block;
+  }
+}

@@ -1,0 +1,77 @@
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+.container {
+  @include make-container();
+
+  // For each breakpoint, define the maximum width of the container in a media query
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    @include media-breakpoint-up($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+
+.container-fluid {
+  @include make-container();
+}
+
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+.grid {
+  @include make-row();
+}
+
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@include make-grid-columns();
+
+
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+@if $enable-flex {
+
+  // Flex column reordering
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      .grid__#{$breakpoint}--first { order: -1; }
+      .grid__#{$breakpoint}--last  { order: 1; }
+    }
+  }
+
+  // Alignment for every column in row
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      .grid__#{$breakpoint}--top    { align-items: flex-start; }
+      .grid__#{$breakpoint}--center { align-items: center; }
+      .grid__#{$breakpoint}--bottom { align-items: flex-end; }
+    }
+  }
+
+  // Alignment per column
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      .grid__#{$breakpoint}--top    { align-self: flex-start; }
+      .grid__#{$breakpoint}--center { align-self: center; }
+      .grid__#{$breakpoint}--bottom { align-self: flex-end; }
+    }
+  }
+
+}

@@ -1,0 +1,35 @@
+{
+  "name": "belay",
+  "version": "0.1.0",
+  "description": "Belay react and sass component library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flashrecruit/belay.git"
+  },
+  "keywords": [
+    "React",
+    "SASS",
+    "Components"
+  ],
+  "contributors": [
+      {
+        "name": "Tim Mendenhall",
+        "email": "timmendenhall@gmail.com",
+        "url": "timmendenhall.com"
+      },
+      {
+        "name": "Tony Mamo",
+        "email": "tony@tonymamo.com",
+        "url": "tonymamo.com"
+      }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flashrecruit/belay/issues"
+  },
+  "homepage": "https://github.com/flashrecruit/belay#readme"
+}

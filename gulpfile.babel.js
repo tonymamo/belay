@@ -5,7 +5,7 @@ import rimraf from 'rimraf';
 
 const plugins = loadPlugins();
 
-import componentsWebpackConfig from './webpack.config';
+import componentsWebpackConfig from './webpack.config.js';
 
 gulp.task('components-js', ['clean'], (cb) => {
     webpack(componentsWebpackConfig, (err, stats) => {
@@ -32,33 +32,20 @@ gulp.task('copy-readme', ['clean'], () => {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('sass', function () {
-    return gulp.src('src/styles/**/*.scss')
-               .pipe(plugins.sass().on('error', plugins.sass.logError))
-               .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('autoprefixer', ['sass'], function () {
-    return gulp.src('./dist/styles.css')
-               .pipe(plugins.autoprefixer({browsers: ['last 2 versions']}))
-               .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('minify-css', ['autoprefixer'], function () {
-    return gulp.src('./dist/styles.css')
-               .pipe(plugins.rename({suffix: '.min'}))
-               .pipe(plugins.cleanCss())
-               .pipe(gulp.dest('./dist'));
-});
-
 gulp.task('clean', (cb) => {
     rimraf('./dist', cb);
 });
 
-gulp.task('build', ['clean', 'copy-readme', 'copy-package-json', 'copy-license', 'components-js', 'sass', 'autoprefixer', 'minify-css']);
+gulp.task('build', [
+    'clean',
+    'copy-readme',
+    'copy-package-json',
+    'copy-license',
+    'components-js'
+]);
 
 gulp.task('watch', ['default'], () => {
-    gulp.watch('src//**/*', ['build']);
+    gulp.watch('src/**/*', ['build']);
 });
 
 gulp.task('default', ['build']);

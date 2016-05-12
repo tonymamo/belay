@@ -32,6 +32,11 @@ gulp.task('copy-readme', ['clean'], () => {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('copy-sass', ['clean'], () => {
+    return gulp.src('src/styles/**/*.*')
+    .pipe(gulp.dest('./dist/lib'));
+});
+
 gulp.task('clean', (cb) => {
     rimraf('./dist', cb);
 });
@@ -41,6 +46,7 @@ gulp.task('build', [
     'copy-readme',
     'copy-package-json',
     'copy-license',
+    'copy-sass',
     'components-js'
 ]);
 

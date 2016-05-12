@@ -6,7 +6,6 @@ const webpack = require('webpack');
 module.exports = {
 
     entry: [
-        './src/styles/_framework.scss',
         './src/index.js'
     ],
 

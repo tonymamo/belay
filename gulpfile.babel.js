@@ -27,6 +27,11 @@ gulp.task('copy-license', ['clean'], () => {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('copy-readme', ['clean'], () => {
+    return gulp.src('README.md')
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('sass', function () {
     return gulp.src('src/styles/**/*.scss')
                .pipe(plugins.sass().on('error', plugins.sass.logError))
@@ -50,11 +55,10 @@ gulp.task('clean', (cb) => {
     rimraf('./dist', cb);
 });
 
-gulp.task('build', ['clean', 'copy-package-json', 'copy-license', 'components-js', 'sass', 'autoprefixer', 'minify-css']);
+gulp.task('build', ['clean', 'copy-readme', 'copy-package-json', 'copy-license', 'components-js', 'sass', 'autoprefixer', 'minify-css']);
 
 gulp.task('watch', ['default'], () => {
-    gulp.watch('src/styles/**/*.scss', ['build']);
-    gulp.watch('src/components/**/*.js', ['build']);
+    gulp.watch('src//**/*', ['build']);
 });
 
 gulp.task('default', ['build']);

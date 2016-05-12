@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Button extends Component {
+class Button extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -8,7 +8,7 @@ class Button extends Component {
     render() {
         return (
             <button>
-                BELAY BUTTON
+                BELAY BUTTON COMMONJS2
             </button>
         );
     }

@@ -70,7 +70,11 @@ module.exports = {
             {
                 test: /\.(scss)/,
                 loaders: ['style', 'css', 'postcss', 'sass']
-            }
+            },
+            {
+                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+                loader : 'file-loader'
+            }
         ]
     },
     postcss: [autoprefixer({ browsers: 'last 2 versions' })]

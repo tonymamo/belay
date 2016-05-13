@@ -37,6 +37,11 @@ gulp.task('copy-sass', ['clean'], () => {
     .pipe(gulp.dest('./dist/lib'));
 });
 
+gulp.task('copy-fonts', ['clean'], () => {
+    return gulp.src('src/fonts/**/*.*')
+    .pipe(gulp.dest('./dist/lib/fonts'));
+});
+
 gulp.task('clean', (cb) => {
     rimraf('./dist', cb);
 });
@@ -47,7 +52,8 @@ gulp.task('build', [
     'copy-package-json',
     'copy-license',
     'copy-sass',
-    'components-js'
+    'components-js',
+    'copy-fonts'
 ]);
 
 gulp.task('watch', ['default'], () => {

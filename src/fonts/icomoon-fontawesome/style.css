@@ -1,10 +1,12 @@
+/* Copied into styles/framework/_icon-font.scss */
+
 @font-face {
     font-family: 'icomoon-fontawesome';
-    src:url('~belay/lib/fonts/icomoon-fontawesome/fonts/icomoon-fontawesome.eot?ve4bwr');
-    src:url('~belay/lib/fonts/icomoon-fontawesome/fonts/icomoon-fontawesome.eot?ve4bwr#iefix') format('embedded-opentype'),
-        url('~belay/lib/fonts/icomoon-fontawesome/fonts/icomoon-fontawesome.ttf?ve4bwr') format('truetype'),
-        url('~belay/lib/fonts/icomoon-fontawesome/fonts/icomoon-fontawesome.woff?ve4bwr') format('woff'),
-        url('~belay/lib/fonts/icomoon-fontawesome/fonts/icomoon-fontawesome.svg?ve4bwr#icomoon-fontawesome') format('svg');
+    src:    url('fonts/icomoon-fontawesome.eot?ve4bwr');
+    src:    url('fonts/icomoon-fontawesome.eot?ve4bwr#iefix') format('embedded-opentype'),
+        url('fonts/icomoon-fontawesome.ttf?ve4bwr') format('truetype'),
+        url('fonts/icomoon-fontawesome.woff?ve4bwr') format('woff'),
+        url('fonts/icomoon-fontawesome.svg?ve4bwr#icomoon-fontawesome') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -22,11 +24,6 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    // If there is text after the icon, add some padding 
-    & + span {
-        padding-left: $spacer/4;
-    }
 }
 
 .icon-glass:before {
@@ -2192,3 +2189,4 @@
 .icon-snapchat-square:before {
     content: "\f2ad";
 }
+

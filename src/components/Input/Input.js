@@ -11,35 +11,66 @@ export default class Input extends Component {
     }
 
     render() {
-        const { type } = this.props;
+        const { type, field, label, labelClass, helpText } = this.props;
         let content;
+        let groupClassName = 'form-group';
+        let errorMessage = '';
+        let smallText, smallClass;
+        let inputClass = this.props.className;
+
+        if (field && field.error && field.touched) {
+            groupClassName += ' has-error';
+            errorMessage = field.error;
+            inputClass += ' form-control--error';
+            smallText = errorMessage;
+            smallClass = 'text--danger';
+        } else if (field && !field.error && field.touched) {
+            groupClassName += ' has-success';
+            inputClass += ' form-control--success';
+            smallText = helpText;
+            smallClass = 'text--success';
+        } else {
+            smallText = helpText;
+            smallClass = 'text--muted';
+        }
+
+        const props = Object.assign({}, this.props, {
+            className: inputClass
+        });
 
         switch (type.toLowerCase()) {
             case 'text':
-                content = <TextInput {...this.props}/>;
+                content = <TextInput {...props}/>;
                 break;
             case 'search':
-                content = <SearchInput {...this.props}/>;
+                content = <SearchInput {...props}/>;
                 break;
             case 'radio':
             case 'radio-inline':
-                content = <RadioInput {...this.props}/>;
+                content = <RadioInput {...props}/>;
                 break;
             case 'checkbox':
             case 'checkboxes':
             case 'checkboxes-inline':
                 // Clear out onBlur, so that it doesn't affect the values
                 this.props.field.onBlur = (e) => e.preventDefault();
-                content = <CheckboxInput {...this.props}/>;
+                content = <CheckboxInput {...props}/>;
                 break;
             case 'select':
-                content = <SelectInput {...this.props}/>;
+                content = <SelectInput {...props}/>;
                 break;
             default:
-                content = <TextInput {...this.props}/>;
+                content = <TextInput {...props}/>;
                 break;
         }
-        return content;
+
+        return (
+            <div className={groupClassName}>
+                <label className={labelClass} title={label}>{label}</label>
+                {content}
+                <small className={smallClass}>{smallText}</small>
+            </div>
+        );
     }
 }
 

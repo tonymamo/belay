@@ -5,18 +5,6 @@ class SelectInput extends Component {
         super(props);
     }
 
-    componentDidMount() {
-        if (this.props.field && this.props.options && this.props.options.length > 0) {
-            this.props.field.onChange(this.props.options[0].Key);
-        }
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-        if (this.props.field && JSON.stringify(this.props.options) != JSON.stringify(nextProps.options) && nextProps.options && nextProps.options.length > 0 && nextProps.type === 'select') {
-            this.props.field.onChange(nextProps.options[0].Key);
-        }
-    }
-
     renderSelectOption(option) {
         return (
             <option key={option.Key} value={option.Key}>{option.Value}</option>
@@ -31,12 +19,13 @@ class SelectInput extends Component {
             renderedOptions.push(this.renderSelectOption(option));
         });
 
-        let value = field ? field.value : null;
+        let value = field ? field.value : '';
 
         return (
             <select
                 value={value}
-                {...this.props} >
+                {...this.props}
+                {...field}>
                 {renderedOptions}
             </select>
         );

@@ -43,7 +43,7 @@ gulp.task('copy-fonts', ['clean'], () => {
 });
 
 gulp.task('clean', (cb) => {
-    rimraf('./dist', cb);
+    rimraf('./dist/*', cb);
 });
 
 gulp.task('build', [

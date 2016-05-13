@@ -5,30 +5,15 @@ class CheckboxInput extends Component {
         super(props);
     }
 
-    componentDidMount() {
-        if (this.props.field && this.props.options && this.props.options.length > 0) {
-            this.props.field.onChange(this.props.options[0].Key);
-        }
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-        if (this.props.field && JSON.stringify(this.props.options) != JSON.stringify(nextProps.options) && nextProps.options && nextProps.options.length > 0 && nextProps.type === 'select') {
-            this.props.field.onChange(nextProps.options[0].Key);
-        }
-    }
-
     renderSingleCheckboxOption() {
-        const { label, option, field, className, disabled, labelClass } = this.props;
+        const { option, field, disabled } = this.props;
 
         return (
-            <div {...this.props} {...field} className={'form-group ' + className}>
-                <label className={labelClass}>{label}</label>
-                <div className='checkbox'>
-                    <label title={option}>
-                        <input type='checkbox' disabled={disabled} checked={field.value}/>
-                        <span>{option}</span> {/* span ensures proper spacing since react got rid of spans around loose text*/}
-                    </label>
-                </div>
+            <div className='checkbox'>
+                <label title={option}>
+                    <input type='checkbox' {...this.props} {...field}/>
+                    <span>{option}</span> {/* span ensures proper spacing since react got rid of spans around loose text*/}
+                </label>
             </div>
         );
     }
@@ -71,11 +56,9 @@ class CheckboxInput extends Component {
             });
 
             return (
-                <div {...this.props} className='form-group'>
-                    <label title={label} className={labelClass}>{label}</label>
+                <div>
                     {selectAllOption}
                     {renderedOptions}
-                    <small className='text--danger'>{errorMessage}</small>
                 </div>
             );
     }
@@ -129,9 +112,7 @@ class CheckboxInput extends Component {
                 break;
         }
 
-        return (
-            <div>{content}</div>
-        );
+        return content;
     }
 }
 

@@ -53,7 +53,7 @@ export default class Input extends Component {
             case 'checkboxes':
             case 'checkboxes-inline':
                 // Clear out onBlur, so that it doesn't affect the values
-                this.props.field.onBlur = (e) => e.preventDefault();
+                // this.props.field.onBlur = (e) => e.preventDefault();
                 content = <CheckboxInput {...props}/>;
                 break;
             case 'select':

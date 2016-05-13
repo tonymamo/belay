@@ -21,7 +21,7 @@ class Button extends Component {
         return (
             <button {...this.props} className={classList} title={text} onClick={clickFunc} disabled={disabled}>
                 {icon && <span className={`icon icon-${icon}`}></span>}
-                <span>{text}</span> {/* span is there to add spacing with .icon + span selector */}
+                {text}
             </button>
         );
     }

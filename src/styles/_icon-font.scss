@@ -18,15 +18,12 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
+    // add small space on sides for when next to text
+    padding: 0 $spacer/4;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    // If there is text after the icon, add some padding 
-    & + span {
-        padding-left: $spacer/4;
-    }
 }
 
 .icon-glass:before {

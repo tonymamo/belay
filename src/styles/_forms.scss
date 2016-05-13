@@ -289,9 +289,9 @@ input[type="checkbox"] {
   &:after {
     @extend .icon;
     position: absolute;
-    right: $half-spacer;
-    top: $half-spacer;
-    font-size: 24px;
+    right: $font-size-lg / 2;
+    top: $font-size-lg / 2;
+    font-size: $font-size-lg;
   }
 }
 

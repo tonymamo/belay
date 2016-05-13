@@ -6,6 +6,7 @@ input[type="text"],
 input[type="date"],
 input[type="file"],
 input[type="password"],
+input[type="email"],
 select,
 textarea,
 .form-control {
@@ -277,39 +278,47 @@ input[type="checkbox"] {
 
 // Form control feedback states
 //
-// Apply contextual and semantic states to individual form controls.
-
-.form-control--success,
-.form-control--warning,
-.form-control--error {
-  padding-right: ($input-padding-x * 3) !important;
-  background-position: center right ($input-height * .25);
-  background-size: ($input-height * .65) ($input-height * .65);
-  background-repeat: no-repeat;
-}
+// 
 
 // Form validation states
+.has-success,
+.has-warning,
+.has-error {
+  position: relative;
+
+  &:after {
+    @extend .icon;
+    position: absolute;
+    right: $half-spacer;
+    top: $half-spacer;
+    font-size: 24px;
+  }
+}
+
 .has-success {
   @include form-control-validation(success, $brand-success);
 
-  .form-control--success {
-    background-image: url($form-icon-success);
+  &:after {
+    color: $brand-success;
+    content: "\f058";
   }
 }
 
 .has-warning {
   @include form-control-validation(warning, $brand-warning);
 
-  .form-control--warning {
-    background-image: url($form-icon-warning);
+  &:after {
+    color: $brand-warning;
+    content: "\f05a";
   }
 }
 
 .has-error {
   @include form-control-validation(error, $brand-danger);
 
-  .form-control--error {
-    background-image: url($form-icon-error);
+  &:after {
+    color: $brand-danger;
+    content: "\f057";
   }
 }
 

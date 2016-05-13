@@ -24,61 +24,27 @@ class SelectInput extends Component {
     }
 
     render() {
-        let renderedOptions = [],
-            value,
-            groupClassName = 'form-group',
-            {field, label, type, options, labelClass} = this.props,
-            errorMessage = '';
+        const {field, options} = this.props;
+        let renderedOptions = [];
 
-        var inputClass = this.props.className;
+        options.forEach((option) => {
+            renderedOptions.push(this.renderSelectOption(option));
+        });
 
-        if (field && field.error && field.touched) {
-            groupClassName += ' has-error';
-            errorMessage = field.error;
-            inputClass += ' form-control--error';
-        } else if (field && !field.error && field.touched) {
-            groupClassName += ' has-success';
-            inputClass += ' form-control--success';
-        }
-
-        if (options) {
-            if (Array.isArray(options)) {
-                options.forEach((option) => {
-                    renderedOptions.push(this.renderSelectOption(option));
-                });
-            } else {
-                if (console && console.error) {
-                    console.error('[Input - SelectInput] - Expected options to be array.  Received: %s', options);
-                }
-            }
-        }
-
-        if (field) {
-            value = field.value;
-        }
+        let value = field ? field.value : null;
 
         return (
-            <div {...this.props} {...field} className={groupClassName}>
-                <label className={labelClass} title={label}>{label}</label>
-                <select
-                    value={value}
-                    selected={this.props.selected}
-                    onChange={this.props.onChange}
-                    disabled={this.props.disabled}
-                    className={inputClass}>
-                    {renderedOptions}
-                </select>
-                <small className="text--danger">{errorMessage}</small>
-            </div>
+            <select
+                value={value}
+                {...this.props} >
+                {renderedOptions}
+            </select>
         );
     }
 }
 
 SelectInput.propTypes = {
-    type:    PropTypes.string.isRequired,
-    label:   PropTypes.string,
-    options: PropTypes.array,
-    option:  PropTypes.string
+    options: PropTypes.array.isRequired,
 };
 
 export default SelectInput;

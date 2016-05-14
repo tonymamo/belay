@@ -21,12 +21,10 @@ export default class Input extends Component {
         if (field && field.error && field.touched) {
             groupClassName += ' has-error';
             errorMessage = field.error;
-            inputClass += ' form-control--error';
             smallText = errorMessage;
             smallClass = 'text--danger';
         } else if (field && !field.error && field.touched) {
             groupClassName += ' has-success';
-            inputClass += ' form-control--success';
             smallText = helpText;
             smallClass = 'text--success';
         } else {
@@ -68,7 +66,7 @@ export default class Input extends Component {
             <div className={groupClassName}>
                 <label className={labelClass} title={label}>{label}</label>
                 {content}
-                <small className={smallClass}>{smallText}</small>
+                <div><small className={smallClass}>{smallText}</small></div>
             </div>
         );
     }

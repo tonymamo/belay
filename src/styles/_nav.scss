@@ -50,7 +50,7 @@
     float: none;
     margin-bottom: $half-spacer;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xs) {
       float: left;
       // Make the list-items overlay the bottom border
       margin-bottom: -$border-width;
@@ -67,7 +67,7 @@
     border: $border-width solid transparent;
     @include border-radius($border-radius);
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xs) {
       @include border-radius($border-radius $border-radius 0 0);
     }
 
@@ -90,7 +90,7 @@
       color: $nav-tabs-active-link-hover-color;
       background-color: $nav-tabs-active-link-hover-bg;
       border-color: $nav-tabs-active-link-hover-border-color;
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xs) {
         border-color: $nav-tabs-active-link-hover-border-color $nav-tabs-active-link-hover-border-color transparent;
       }
 

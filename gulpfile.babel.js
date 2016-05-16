@@ -34,7 +34,7 @@ gulp.task('copy-readme', ['clean'], () => {
 
 gulp.task('copy-sass', ['clean'], () => {
     return gulp.src('src/styles/**/*.*')
-    .pipe(gulp.dest('./dist/lib'));
+    .pipe(gulp.dest('./dist/lib/styles'));
 });
 
 gulp.task('copy-fonts', ['clean'], () => {

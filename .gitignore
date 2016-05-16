@@ -1,3 +1,37 @@
-node_modules
 .DS_Store
-dist
+node_modules/
+dist/
+bin/
+obj/
+.idea/
+styles/css/*.css
+npm-debug.log
+uploads/
+
+# Maven
+target/
+*/target/**
+*/bin/**
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+/bin/
+# Generated node files
+/node/**
+
+# Eclipse
+.classpath
+.project
+
+### Vim ###
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~

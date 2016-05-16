@@ -3,6 +3,7 @@ import TextInput from './TextInput.js';
 import SearchInput from './SearchInput.js';
 import RadioInput from './RadioInput.js';
 import CheckboxInput from './CheckboxInput.js';
+import CheckboxGroup from './CheckboxGroup.js';
 import SelectInput from './SelectInput.js';
 
 export default class Input extends Component {
@@ -48,11 +49,12 @@ export default class Input extends Component {
                 content = <RadioInput {...props}/>;
                 break;
             case 'checkbox':
+                content = <CheckboxInput {...props}/>;
+                break;
             case 'checkboxes':
-            case 'checkboxes-inline':
                 // Clear out onBlur, so that it doesn't affect the values
                 // this.props.field.onBlur = (e) => e.preventDefault();
-                content = <CheckboxInput {...props}/>;
+                content = <CheckboxGroup {...props}/>;
                 break;
             case 'select':
                 content = <SelectInput {...props}/>;
@@ -76,6 +78,4 @@ Input.propTypes = {
     label:    PropTypes.string,
     field:    PropTypes.object,
     type:     PropTypes.string.isRequired,
-    options:  PropTypes.array,
-    option:   PropTypes.string
 };

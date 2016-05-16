@@ -8,7 +8,7 @@ class TextInput extends Component {
     render() {
         return (
             <div>
-                <input {...this.props}/>
+                <input {...this.props} {...this.props.field}/>
                 <span className="validation-icon float-right"></span>
             </div>
         );

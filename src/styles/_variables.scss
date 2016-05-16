@@ -193,8 +193,8 @@ $grid-gutter-width:           $spacer !default;
 //
 
 // Defaults 
-$font-family-sans-serif:      'Helvetica Neue', helvetica, tahoma, arial, verdana, sans-serif !default;
-$font-family-serif:           Georgia, "Times New Roman", Times, serif !default;
+$font-family-sans-serif:      'Open Sans', 'Helvetica Neue', helvetica, tahoma, arial, verdana, sans-serif !default;
+$font-family-serif:           'Merriweather', Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:       Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:            $font-family-sans-serif !default;
 
@@ -225,10 +225,10 @@ $display2-size:               4.5rem !default;
 $display3-size:               5.5rem !default;
 $display4-size:               6rem !default;
 
-$display1-weight:             600 !default;
-$display2-weight:             600 !default;
-$display3-weight:             600 !default;
-$display4-weight:             600 !default;
+$display1-weight:             900 !default;
+$display2-weight:             900 !default;
+$display3-weight:             900 !default;
+$display4-weight:             900 !default;
 
 // Line Height
 $line-height:                 1.5 !default;
@@ -237,8 +237,8 @@ $line-height-lg:              (4/3) !default;
 
 // Headings
 $headings-margin-bottom:      ($spacer / 2) !default;
-$headings-font-family:        inherit !default;
-$headings-font-weight:        500 !default;
+$headings-font-family:        $font-family-serif !default;
+$headings-font-weight:        700 !default;
 $headings-line-height:        1.1 !default;
 $headings-color:              $gray-dark !default;
 

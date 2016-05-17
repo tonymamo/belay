@@ -6,9 +6,9 @@ class RadioInput extends Component {
     }
 
     componentDidMount() {
-        // select the first item if it's available
-        if (this.props.field && this.props.options && this.props.options.length > 0) {
-            this.props.field.onChange(this.props.options[0].Key);
+        // select the first item if it's available and nothing is selected yet
+        if (this.props.field && !this.props.field.value && this.props.options && this.props.options.length > 0) {
+            this.props.field.onChange(this.props.options[0].Key.toString());
         }
     }
 
@@ -24,12 +24,13 @@ class RadioInput extends Component {
     }
 
     renderRadioOption(option) {
-        const {inline, field: {name, value}} = this.props;
+        const {inline, field: {value}} = this.props;
+        let keyValue = option.Key.toString();
 
         return (
-            <div className={`${inline ? 'radio--inline' : 'radio'}`} key={option.Key}>
+            <div className={`${inline ? 'radio--inline' : 'radio'}`} key={keyValue}>
                 <label title={option.Value}>
-                    <input type="radio" name={name} value={option.Key} disabled={this.props.disabled} checked={value == option.Key.toString()}/>
+                    <input type="radio" {...this.props} {...this.props.field} value={keyValue} checked={value === keyValue}/>
                     <span>{option.Value}</span>
                 </label>
             </div>
@@ -46,7 +47,7 @@ class RadioInput extends Component {
 RadioInput.propTypes = {
     type:    PropTypes.string.isRequired,
     options: PropTypes.array.isRequired,
-    field:   PropTypes.object,
+    field:   PropTypes.object.isRequired,
     label:   PropTypes.string
 };
 

@@ -10,6 +10,7 @@
 * GRID......................Set breakpoints, grid columns, max container widths
 * TYPOGRAPHY................Define font families, sizes, line-height, etc
 * COMPONENT DEFAULTS........Set defaults that other components will inherit
+* VALIDATION STATES.........Success, info, warning, and danger coloring
 * TABLES....................Default styling for tables
 * BUTTONS...................Set up button styling and the modifications
 * FORMS.....................Input and other form element styling
@@ -18,7 +19,6 @@
 * NAVS......................Styling for navs, tabs, pills
 * PAGINATION................Defaults for pagination styling
 * PAGER.....................Simple pagination component styling
-* VALIDATION STATES.........Success, info, warning, and danger coloring
 * CARDS.....................Set defaults for .card containers
 * LABELS....................Define styling for .label
 * MODALS....................Define styling for modals
@@ -268,8 +268,8 @@ $hr-border-width:             $border-width;
 
 // Define common defaults for various components.
 $border-radius:               .125rem !default;
-$border-radius-lg:            .3rem !default;
-$border-radius-sm:            .1rem !default;
+$border-radius-lg:            .25rem !default;
+$border-radius-sm:            .0625rem !default;
 
 $component-active-color:      $white !default;
 $component-active-bg:         $brand-primary !default;
@@ -279,6 +279,33 @@ $caret-width-lg:              $caret-width !default;
 
 $transition-time:             .2s !default;
 
+
+
+
+
+//
+// Validation States
+//
+
+// Success
+$state-success-text:          $white !default;
+$state-success-bg:            $brand-success !default;
+$state-success-border:        darken($state-success-bg, 5%) !default;
+
+// Info
+$state-info-text:             $white !default;
+$state-info-bg:               $brand-info !default;
+$state-info-border:           darken($state-info-bg, 5%) !default;
+
+// Warning
+$state-warning-text:          $white !default;
+$state-warning-bg:            $brand-warning !default;
+$state-warning-border:        darken($state-warning-bg, 5%) !default;
+
+// Danger
+$state-danger-text:           $white !default;
+$state-danger-bg:             $brand-danger !default;
+$state-danger-border:         darken($state-danger-bg, 5%) !default;
 
 
 
@@ -314,32 +341,32 @@ $button-font-weight:          normal !default;
 // Primary
 $button-primary-color:        $white !default;
 $button-primary-bg:           $brand-primary !default;
-$button-primary-border:       $button-primary-bg !default;
+$button-primary-border:       darken($button-primary-bg, 5%) !default;
 
 // Secondary
 $button-secondary-color:      $white !default;
 $button-secondary-bg:         $brand-secondary !default;
-$button-secondary-border:     $button-secondary-bg !default;
+$button-secondary-border:     darken($button-secondary-bg, 5%) !default;
 
 // Info
 $button-info-color:           $white !default;
-$button-info-bg:              $brand-info !default;
-$button-info-border:          $button-info-bg !default;
+$button-info-bg:              $state-info-bg !default;
+$button-info-border:          $state-info-border !default;
 
 // Success
 $button-success-color:        $white !default;
-$button-success-bg:           $brand-success !default;
-$button-success-border:       $button-success-bg !default;
+$button-success-bg:           $state-success-bg !default;
+$button-success-border:       $state-success-border !default;
 
 // Warning
 $button-warning-color:        $white !default;
-$button-warning-bg:           $brand-warning !default;
-$button-warning-border:       $button-warning-bg !default;
+$button-warning-bg:           $state-warning-bg !default;
+$button-warning-border:       $state-warning-border !default;
 
 // Danger
 $button-danger-color:         $white !default;
-$button-danger-bg:            $brand-danger !default;
-$button-danger-border:        $button-danger-bg !default;
+$button-danger-bg:            $state-danger-bg !default;
+$button-danger-border:        $state-danger-border !default;
 
 // Disabled
 $button-link-disabled-color:  $gray-light !default;
@@ -535,33 +562,6 @@ $pager-active-color:          $pagination-active-color !default;
 
 $pager-disabled-color:        $pagination-disabled-color !default;
 
-
-
-
-
-//
-// Validation States
-//
-
-// Success
-$state-success-text:          $white !default;
-$state-success-bg:            $brand-success !default;
-$state-success-border:        darken($state-success-bg, 5%) !default;
-
-// Info
-$state-info-text:             $white !default;
-$state-info-bg:               $brand-info !default;
-$state-info-border:           darken($state-info-bg, 5%) !default;
-
-// Warning
-$state-warning-text:          $white !default;
-$state-warning-bg:            $brand-warning !default;
-$state-warning-border:        darken($state-warning-bg, 5%) !default;
-
-// Danger
-$state-danger-text:           $white !default;
-$state-danger-bg:             $brand-danger !default;
-$state-danger-border:         darken($state-danger-bg, 5%) !default;
 
 
 

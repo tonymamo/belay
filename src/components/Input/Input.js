@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import TextInput from './TextInput.js';
 import SearchInput from './SearchInput.js';
 import RadioInput from './RadioInput.js';
+import RadioGroup from './RadioGroup.js';
 import CheckboxInput from './CheckboxInput.js';
 import CheckboxGroup from './CheckboxGroup.js';
 import SelectInput from './SelectInput.js';
@@ -45,7 +46,6 @@ export default class Input extends Component {
                 content = <SearchInput {...props}/>;
                 break;
             case 'radio':
-            case 'radio-inline':
                 content = <RadioInput {...props}/>;
                 break;
             case 'checkbox':

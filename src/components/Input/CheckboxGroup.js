@@ -50,7 +50,7 @@ class CheckboxGroup extends Component {
     }
 
     render() {
-        const { label, options, selectAll, disabled, field, labelClass } = this.props;
+        const { options, selectAll, disabled } = this.props;
         let renderedOptions = [], selectAllOption;
 
         if (selectAll) {

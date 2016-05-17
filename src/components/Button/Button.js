@@ -7,7 +7,7 @@ class Button extends Component {
     }
 
     render() {
-        let {type, color, icon, text, disabled, block, clickFunc, size} = this.props;
+        let {color, icon, text, disabled, block, clickFunc, size} = this.props;
 
         var classList = classNames(
             'button',

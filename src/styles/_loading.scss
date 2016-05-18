@@ -1,0 +1,28 @@
+// Loading Animation
+//      
+// Loading text with animated svg. Optional modifier of .loading--fullscreen for a fullscreen takeover
+
+.loading {
+  text-align: center;
+  padding: $spacer;
+  cursor: wait;
+  margin: $spacer 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading--fullscreen {
+  background-color:  rgba($body-bg,.95);
+  height: 100vh;
+  margin: 0;
+  @extend .position-fixed;
+}
+
+.loading__bubble {
+  fill: $brand-primary;
+}
+
+.loading__dot {
+  fill: $text-light;
+}

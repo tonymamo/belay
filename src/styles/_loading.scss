@@ -24,23 +24,21 @@
 }
 
 .loading__dot {
-  opacity: 0;
+  opacity: 0.25;
   fill: $text-light;
   &:nth-of-type(1){
-    animation: hideshow 2s ease infinite;
+    animation: hideshow 1.5s ease infinite;
   }
   &:nth-of-type(2){
-    animation: hideshow 2s .125s ease infinite;
+    animation: hideshow 1.5s .25s ease infinite;
   }
   &:nth-of-type(3){
-    animation: hideshow 2s .25s ease infinite;
+    animation: hideshow 1.5s .5s ease infinite;
   }
 }
 
 @keyframes hideshow {
-  0%   { opacity: 0; }
-  15%  { opacity: 1; }
+  0%   { opacity: 0.25; }
   50%  { opacity: 1; }
-  75%  { opacity: 0; }
-  100% { opacity: 0; }
+  100% { opacity: 0.25; }
 } 

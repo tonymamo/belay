@@ -150,3 +150,17 @@
   bottom: 0;
   z-index: $zindex-navbar-fixed;
 }
+
+
+
+
+
+//
+// Box for sectioning off content
+//
+.box {
+  border: $border-width solid $base-border-color;
+  padding: $spacer;
+  border-radius: $border-radius;
+  background-color: $gray-lightest;
+}

@@ -32,6 +32,7 @@ class List extends React.Component {
             renderedNavItems.push((
                 <a className={`list-group__item ${activeClass}`}
                     href={link}
+                    key={link}
                     onClick={this.handleNavClick.bind(this, link)}>{text}</a>
             ));
         });

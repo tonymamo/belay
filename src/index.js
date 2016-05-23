@@ -5,6 +5,7 @@ import Loading from './components/Loading/Loading.js';
 import Container from './components/Grid/Container.js';
 import Grid from './components/Grid/Grid.js';
 import GridItem from './components/Grid/GridItem.js';
+import List from './components/List/List.js';
 
 export { Button };
 export { Input };
@@ -13,3 +14,4 @@ export { Loading };
 export { Container };
 export { Grid };
 export { GridItem };
+export { List };

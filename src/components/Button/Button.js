@@ -7,7 +7,7 @@ class Button extends Component {
     }
 
     render() {
-        let {color, icon, text, disabled, block, clickFunc, size} = this.props;
+        let {color, icon, text, disabled, block, size} = this.props;
 
         var classList = classNames(
             'button',
@@ -19,7 +19,7 @@ class Button extends Component {
         );
 
         return (
-            <button {...this.props} className={classList} title={text} onClick={clickFunc} disabled={disabled}>
+            <button {...this.props} className={classList} title={text} disabled={disabled}>
                 {icon && <span className={`icon icon-${icon}`}></span>}
                 {text}
             </button>
@@ -28,7 +28,6 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-    clickFunc: PropTypes.func, // TODO: make required for <button>s, but not for <Link>s
     type: PropTypes.string, // TODO: a switch for toggling between <button> and <Link>
     color: PropTypes.string.isRequired,
     icon: PropTypes.string,

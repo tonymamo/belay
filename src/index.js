@@ -6,6 +6,7 @@ import Container from './components/Grid/Container.js';
 import Grid from './components/Grid/Grid.js';
 import GridItem from './components/Grid/GridItem.js';
 import List from './components/List/List.js';
+import Logo from './components/Logo/Logo.js';
 import validations from './validations/validations.js';
 
 export { Button };
@@ -16,4 +17,5 @@ export { Container };
 export { Grid };
 export { GridItem };
 export { List };
+export { Logo };
 export { validations };

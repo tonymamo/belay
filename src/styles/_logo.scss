@@ -1,0 +1,22 @@
+.logo {
+	vertical-align: middle;
+}
+
+.logo__mark,
+.logo__flash {
+	fill: $brand-primary;
+}
+
+.logo__recruit {
+	fill: $gray;
+}
+
+// Reversed out option
+.logo--reverse {
+	.logo__mark, 
+	.logo__flash,
+	.logo__recruit {
+		fill: $text-light;
+	}
+}
+

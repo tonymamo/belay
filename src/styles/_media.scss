@@ -20,7 +20,7 @@
   }
 } @else {
   .media {
-    margin-top: 15px;
+    margin-top: $spacer;
 
     &:first-child {
       margin-top: 0;
@@ -69,12 +69,12 @@
 //
 
 .media__object {
-  padding-right: 10px;
+  margin-right: $spacer;
 }
 
 .media__object--inverse {
-  padding-left: 10px;
-  padding-right: 0;
+  margin-left: $spacer;
+  margin-right: 0;
 }
 
 
@@ -84,7 +84,7 @@
 
 .media__heading {
   margin-top: 0;
-  margin-bottom: 5px;
+  margin-bottom: $half-spacer;
 }
 
 

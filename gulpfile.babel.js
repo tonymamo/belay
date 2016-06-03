@@ -32,6 +32,11 @@ gulp.task('copy-readme', ['clean'], () => {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('copy-docs', ['clean'], () => {
+    return gulp.src('docs/**/*.md')
+    .pipe(gulp.dest('./dist/docs'));
+});
+
 gulp.task('copy-sass', ['clean'], () => {
     return gulp.src('src/styles/**/*.*')
     .pipe(gulp.dest('./dist/lib/styles'));
@@ -49,6 +54,7 @@ gulp.task('clean', (cb) => {
 gulp.task('build', [
     'clean',
     'copy-readme',
+    'copy-docs',
     'copy-package-json',
     'copy-license',
     'copy-sass',

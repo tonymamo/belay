@@ -11,11 +11,11 @@ class GridItem extends React.Component {
             [`grid__md-${md}`]: md,
             [`grid__lg-${lg}`]: lg,
             [`grid__xl-${xl}`]: xl,
-            [`grid__xs--${xsOffset}`]: xsOffset,
-            [`grid__sm--${smOffset}`]: smOffset,
-            [`grid__md--${mdOffset}`]: mdOffset,
-            [`grid__lg--${lgOffset}`]: lgOffset,
-            [`grid__xl--${xlOffset}`]: xlOffset
+            [`grid__xs--offset-${xsOffset}`]: xsOffset,
+            [`grid__sm--offset-${smOffset}`]: smOffset,
+            [`grid__md--offset-${mdOffset}`]: mdOffset,
+            [`grid__lg--offset-${lgOffset}`]: lgOffset,
+            [`grid__xl--offset-${xlOffset}`]: xlOffset
         });
 
         return (

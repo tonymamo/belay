@@ -21,6 +21,7 @@
 
 .container-fluid {
   @include make-container();
+  max-width: 75rem; // 1200px
 }
 
 

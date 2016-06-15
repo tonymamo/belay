@@ -19,8 +19,19 @@
   @extend .position-fixed;
 }
 
+.loading--inline {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  display: inline-block;
+}
+
 .loading__bubble {
   fill: $brand-primary;
+}
+
+.loading__bubble--muted {
+  fill: $gray-light;
 }
 
 .loading__dot {

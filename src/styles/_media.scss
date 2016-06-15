@@ -6,6 +6,7 @@
   .media__body {
     flex: 1;
     word-break: break-word;
+    overflow: hidden;
   }
   .media__object {
     &--inverse {

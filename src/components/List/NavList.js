@@ -15,10 +15,10 @@ class NavList extends React.Component {
         const { items, linkText, linkMap } = this.props;
         const renderedNavItems = [];
 
-        // :variable regex
-        let regex = /\:([A-Za-z]+)/g;
-
         items.forEach((item) => {
+            // :variable regex
+            let regex = /\:([A-Za-z]+)/g;
+
             let link = linkMap.replace(regex, (str, p1) => {
                 return item[p1];
             });
@@ -29,15 +29,31 @@ class NavList extends React.Component {
 
             let activeClass = (link === window.location.pathname) ? 'list-group__item--active' : '';
 
-            renderedNavItems.push((
-                <a className={`list-group__item ${activeClass}`}
-                    href={link}
-                    key={link}
-                    onClick={this.handleNavClick.bind(this, link)}>{text}</a>
-            ));
+            // If there was an overriden function to render this item, call it
+            if (this.props.renderItem) {
+                renderedNavItems.push(
+                    this.props.renderItem({
+                        item,
+                        link,
+                        text,
+                        activeClass
+                    })
+                );
+            } else {
+                renderedNavItems.push( this.renderDefault(text, link, activeClass) );
+            }
         });
 
         return renderedNavItems;
+    }
+
+    renderDefault(text, link, activeClass) {
+        return (
+            <a className={`list-group__item ${activeClass}`}
+                href={link}
+                key={link}
+                onClick={this.handleNavClick.bind(this, link)}>{text}</a>
+        );
     }
 
     render() {

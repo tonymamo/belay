@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import TextInput from './TextInput.js';
+import Textarea from './Textarea.js';
 import SearchInput from './SearchInput.js';
 import RadioInput from './RadioInput.js';
 import CheckboxInput from './CheckboxInput.js';
@@ -40,6 +41,9 @@ export default class Input extends Component {
         switch (type.toLowerCase()) {
             case 'text':
                 content = <TextInput {...props}/>;
+                break;
+            case 'textarea':
+                content = <Textarea {...props}/>;
                 break;
             case 'search':
                 content = <SearchInput {...props}/>;

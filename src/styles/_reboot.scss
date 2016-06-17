@@ -291,3 +291,14 @@ output {
 //  line-height: $line-height;
 //  color: $input-color;
 }
+
+// ::selection overrides
+::-moz-selection {
+    color: $body-bg; 
+    background: $brand-secondary; 
+}
+
+::selection { 
+    color: $body-bg;
+    background: $brand-secondary; 
+}

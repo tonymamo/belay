@@ -6,10 +6,11 @@ class Textarea extends Component {
     }
 
     render() {
+        const { field } = this.props;
         return (
             <div>
                 <textarea {...this.props} {...this.props.field}/>
-                <span className="validation-icon float-right"></span>
+                { field && field.touched && <span className="validation-icon float-right"></span>}
             </div>
         );
     }

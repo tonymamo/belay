@@ -40,10 +40,10 @@ export default class Input extends Component {
 
         switch (type.toLowerCase()) {
             case 'text':
-                content = <TextInput {...props}/>;
+                content = <TextInput {...props} field={field}/> ;
                 break;
             case 'textarea':
-                content = <Textarea {...props}/>;
+                content = <Textarea {...props}  field={field}/>;
                 break;
             case 'search':
                 content = <SearchInput {...props}/>;
@@ -63,15 +63,15 @@ export default class Input extends Component {
                 content = <SelectInput {...props}/>;
                 break;
             default:
-                content = <TextInput {...props}/>;
+                content = <TextInput {...props}  field={field}/>;
                 break;
         }
 
         return (
             <div className={groupClassName}>
-                <label className={labelClass} title={label}>{label}</label>
+                { label && <label className={labelClass} title={label}>{label}</label>}
                 {content}
-                <div><small className={smallClass}>{smallText}</small></div>
+                { smallText && <div><small className={smallClass}>{smallText}</small></div>}
             </div>
         );
     }

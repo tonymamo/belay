@@ -51,7 +51,7 @@ Button.propTypes = {
     type: PropTypes.string.isRequired,
     color: PropTypes.string,
     icon: PropTypes.string,
-    text: PropTypes.string.isRequired,
+    text: PropTypes.string,
     disabled: PropTypes.bool,
     block: PropTypes.bool
 };

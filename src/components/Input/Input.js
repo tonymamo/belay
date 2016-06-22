@@ -40,10 +40,10 @@ export default class Input extends Component {
 
         switch (type.toLowerCase()) {
             case 'text':
-                content = <TextInput {...props} field={field}/> ;
+                content = <TextInput {...props}/> ;
                 break;
             case 'textarea':
-                content = <Textarea {...props}  field={field}/>;
+                content = <Textarea {...props}/>;
                 break;
             case 'search':
                 content = <SearchInput {...props}/>;
@@ -63,7 +63,7 @@ export default class Input extends Component {
                 content = <SelectInput {...props}/>;
                 break;
             default:
-                content = <TextInput {...props}  field={field}/>;
+                content = <TextInput {...props}/>;
                 break;
         }
 

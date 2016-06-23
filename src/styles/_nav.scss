@@ -62,6 +62,7 @@
   }
 
   .nav__link {
+    cursor: pointer;
     display: block;
     padding: $nav-link-padding;
     border: $border-width solid transparent;

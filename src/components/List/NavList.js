@@ -17,7 +17,7 @@ class NavList extends React.Component {
 
         items.forEach((item) => {
             // :variable regex
-            let regex = /\:([A-Za-z]+)/g;
+            let regex = /\:(\w+)/g;
 
             let link = linkMap.replace(regex, (str, p1) => {
                 return item[p1];

@@ -37,6 +37,14 @@ module.exports = {
                 commonjs: 'react-dom',
                 amd: 'react-dom'
             }
+        },
+        {
+            'react-router': {
+                root: 'ReactRouter',
+                commonjs2: 'react-router',
+                commonjs: 'react-router',
+                amd: 'react-router'
+            }
         }
     ],
 
@@ -72,9 +80,9 @@ module.exports = {
                 loaders: ['style', 'css', 'postcss', 'sass']
             },
             {
-                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
                 loader : 'file-loader'
-            }
+            }
         ]
     },
     postcss: [autoprefixer({ browsers: 'last 2 versions' })]

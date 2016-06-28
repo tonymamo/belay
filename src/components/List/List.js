@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import NavList from './NavList.js';
-import Loading from '../Loading/Loading.js';
+import SkeletonList from './SkeletonList.js';
 
 class List extends React.Component {
 
@@ -13,7 +13,7 @@ class List extends React.Component {
         let content;
 
         if (isLoading) {
-            content = <Loading />;
+            content = <SkeletonList/>;
         } else {
             switch (type) {
                 case 'nav':

@@ -24,6 +24,13 @@
   margin: 0;
   text-align: left;
   display: inline-block;
+  line-height: $spacer * 2;
+  height: $spacer * 2;
+
+  & .loading__text {
+    display: inline-block;
+    vertical-align: top;
+  }
 }
 
 .loading__bubble {

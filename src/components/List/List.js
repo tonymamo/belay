@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import NavList from './NavList.js';
+import Loading from '../Loading/Loading.js';
 
 class List extends React.Component {
 
@@ -8,19 +9,24 @@ class List extends React.Component {
     }
 
     render() {
-        const { type } = this.props;
+        const { isLoading, type } = this.props;
         let content;
 
-        switch (type) {
-            case 'nav':
-                content = <NavList {...this.props}/>;
-                break;
-            case 'managed':
-                content = <NavList {...this.props}/>;
-                break;
-            default:
-                content = <div>List type must be set</div>;
+        if (isLoading) {
+            content = <Loading />;
+        } else {
+            switch (type) {
+                case 'nav':
+                    content = <NavList {...this.props}/>;
+                    break;
+                case 'managed':
+                    content = <NavList {...this.props}/>;
+                    break;
+                default:
+                    content = <div>List type must be set</div>;
+            }
         }
+
 
         return (
             <div>

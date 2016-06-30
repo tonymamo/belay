@@ -74,11 +74,12 @@ $teal-blue:                   #3194a4; // new suggested is #66CCCC
 $dark-blue:                   #2c3a46; // new suggested is #002233, was #2c3a46 and #25303a
 $light-blue:                  #CCEEFF;
 $salmon:                      #d15d5d;
+$orange:                      #f1824e;
 
 // Assignment
 // You can add new vars here, but keep the names abstracted. 
 $brand-primary:               $royal-blue !default;
-$brand-secondary:             $salmon !default;
+$brand-secondary:             $orange !default;
 $accent-one:                  $dark-blue;
 $accent-two:                  $teal-blue;
 

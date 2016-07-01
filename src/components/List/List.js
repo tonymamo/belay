@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import NavList from './NavList.js';
+import ManagedItemList from './ManagedItemList.js';
 import SkeletonList from './SkeletonList.js';
 
 class List extends React.Component {
@@ -20,7 +21,7 @@ class List extends React.Component {
                     content = <NavList {...this.props}/>;
                     break;
                 case 'managed':
-                    content = <NavList {...this.props}/>;
+                    content = <ManagedItemList {...this.props}/>;
                     break;
                 default:
                     content = <div>List type must be set</div>;

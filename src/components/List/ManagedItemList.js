@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 import Button from '../Button/Button.js';
 
 class ManagedItemList extends React.Component {
@@ -51,7 +52,7 @@ class ManagedItemList extends React.Component {
         // for each item, render its row
         items.forEach((item, i) => {
             rows.push(
-                <tr className="managed-item" key={i}>
+                <tr className="managed-item" key={`managed-list-${i}`}>
                     {this.renderTableRow(item, i)}
                 </tr>
             );

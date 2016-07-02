@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
 import classNames from 'classnames';
 
 class Button extends Component {
@@ -7,9 +6,13 @@ class Button extends Component {
         super(props);
     }
 
+    handleClick(link, event) {
+        event.preventDefault();
+        this.context.router.push(link);
+    }
+
     render() {
         let {type, to, color, icon, text, disabled, block, size, className} = this.props;
-        let content;
 
         var classList = classNames(
             'button',
@@ -22,24 +25,31 @@ class Button extends Component {
             }
         );
 
+        let content;
         switch (type.toLowerCase()) {
             case 'button':
-                content =   <button {...this.props} className={classList} title={text} disabled={disabled}>
-                                {icon && <span className={`icon icon-${icon}`}/>}
-                                {text}
-                            </button>;
+                content = (
+                    <button {...this.props} className={classList} title={text} disabled={disabled}>
+                        {icon && <span className={`icon icon-${icon}`}/>}
+                        {text}
+                    </button>
+                );
                 break;
             case 'link':
-                content =   <Link {...this.props} className={classList} title={text}>
-                                {icon && <span className={`icon icon-${icon}`}/>}
-                                {text}
-                            </Link>;
+                content = (
+                    <a href={to} {...this.props} className={classList} title={text} onClick={this.handleClick.bind(this, to)}>
+                        {icon && <span className={`icon icon-${icon}`}/>}
+                        {text}
+                    </a>
+                );
                 break;
             default:
-                content =   <button {...this.props} className={classList} title={text} disabled={disabled}>
-                                {icon && <span className={`icon icon-${icon}`}/>}
-                                {text}
-                            </button>;
+                content = (
+                    <button {...this.props} className={classList} title={text} disabled={disabled}>
+                        {icon && <span className={`icon icon-${icon}`}/>}
+                        {text}
+                    </button>
+                );
                 break;
         }
 
@@ -54,6 +64,10 @@ Button.propTypes = {
     text: PropTypes.string,
     disabled: PropTypes.bool,
     block: PropTypes.bool
+};
+
+Button.contextTypes = {
+    router: React.PropTypes.object.isRequired
 };
 
 export default Button;

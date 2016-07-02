@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 import Button from '../Button/Button.js';
 
 class ManagedItemList extends React.Component {
@@ -201,10 +200,15 @@ class ManagedItemList extends React.Component {
         }
 
         return (
-            <Link to={route} className={`managed-item__button ${action.className}`} title={action.text}>
+            <a href={route} onClick={handleClickLink.bind(this, route)} className={`managed-item__button ${action.className}`} title={action.text}>
                 <span className={`icon icon-${action.iconClass}`}/><span className="sr-only">{action.text}</span>
-            </Link>
+            </a>
         );
+    }
+
+    handleClickLink(link, event) {
+        event.preventDefault();
+        this.context.router.push(link);
     }
 
     createButtonAction(action, item) {

@@ -200,7 +200,7 @@ class ManagedItemList extends React.Component {
         }
 
         return (
-            <a href={route} onClick={handleClickLink.bind(this, route)} className={`managed-item__button ${action.className}`} title={action.text}>
+            <a href={route} onClick={this.handleClickLink.bind(this, route)} className={`managed-item__button ${action.className}`} title={action.text}>
                 <span className={`icon icon-${action.iconClass}`}/><span className="sr-only">{action.text}</span>
             </a>
         );

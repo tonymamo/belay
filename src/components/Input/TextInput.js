@@ -9,7 +9,7 @@ class TextInput extends Component {
         const { field } = this.props;
         return (
             <div>
-                <input {...this.props} {...this.props.field}/>
+                <input {...this.props} {...this.props.field} className="form-control"/>
                 { field && field.touched && <span className="validation-icon float-right"></span>}
             </div>
         );

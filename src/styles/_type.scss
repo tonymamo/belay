@@ -139,6 +139,11 @@ ol ol {
   list-style: lower-alpha;
 }
 
+// Customize dl dt's
+dt {
+  color: $text-dark;
+}
+
 
 //
 // Misc

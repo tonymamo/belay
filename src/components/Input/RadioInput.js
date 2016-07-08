@@ -28,7 +28,7 @@ class RadioInput extends Component {
         let keyValue = option.Key.toString();
 
         return (
-            <div className={`${inline ? 'radio--inline' : 'radio'}`} key={keyValue}>
+            <div className={`${inline ? 'radio radio--inline' : 'radio'}`} key={keyValue}>
                 <label title={option.Value}>
                     <input type="radio" {...this.props} {...this.props.field} value={keyValue} checked={value === keyValue}/>
                     <span>{option.Value}</span>

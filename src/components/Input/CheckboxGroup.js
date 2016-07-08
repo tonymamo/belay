@@ -23,7 +23,7 @@ class CheckboxGroup extends Component {
         const { inline, disabled } = this.props;
 
         return (
-            <div key={option.Key} className={`${inline ? 'checkbox--inline' : 'checkbox'}`}>
+            <div key={option.Key} className={`${inline ? 'checkbox checkbox--inline' : 'checkbox'}`}>
                 <label title={option.Value}>
                     <input type='checkbox' name='optionsCheckboxes' value={option.Key} disabled={disabled} checked={checked} onChange={this.checkboxUpdateReduxFormValue.bind(this)}/>
                     <span>{option.Value}</span>

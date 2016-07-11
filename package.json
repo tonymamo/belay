@@ -4,7 +4,10 @@
   "description": "Belay react and sass component library.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "major": "npm version major && gulp && cd ./dist && npm publish",
+    "minor": "npm version minor && gulp && cd ./dist && npm publish",
+    "patch": "npm version patch && gulp && cd ./dist && npm publish"
   },
   "repository": {
     "type": "git",

@@ -56,6 +56,7 @@ export default class Alert extends Component {
                         </small>
                     }
                     {children}
+                    <a href="" className="alert__link">Undo</a>
                 </p>
             </div>
         );

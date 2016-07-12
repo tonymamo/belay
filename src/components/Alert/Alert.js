@@ -26,7 +26,7 @@ export default class Alert extends Component {
     }
 
     render() {
-        const { children, close, dismissable, alertNumber, alertNumberTotal, type } = this.props;
+        const { children, undoAction, close, dismissable, alertNumber, alertNumberTotal, type } = this.props;
 
         var classList = classNames(
             'alert',
@@ -56,7 +56,9 @@ export default class Alert extends Component {
                         </small>
                     }
                     {children}
-                    <a href="" className="alert__link">Undo</a>
+                    { (undoAction && typeof undoAction === 'function') &&
+                        <a href="" className="alert__link" onClick={undoAction}>Undo</a>
+                    }
                 </p>
             </div>
         );
@@ -65,7 +67,8 @@ export default class Alert extends Component {
 
 Alert.propTypes = {
     dismissable: PropTypes.bool,
-    type: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired,
+    undoAction: PropTypes.func
 };
 
 export default Alert;

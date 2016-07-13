@@ -10,7 +10,7 @@ class ManagedItemList extends React.Component {
     renderTable() {
         return (
             <div className="responsive-table">
-                <table className="table small table--hover">
+                <table className="table table--sm small table--hover">
                     <thead className="thead--default">
                         <tr>
                             { this.renderTableHeader() }
@@ -31,7 +31,7 @@ class ManagedItemList extends React.Component {
         headers.forEach((header) => {
             renderedHeaders.push(
                 <th>
-                    <div className="text--truncate" title={header.text}>{header.text}</div>
+                    <div className="managed-item__cell text--truncate" title={header.text}>{header.text}</div>
                 </th>
             );
         });
@@ -90,7 +90,7 @@ class ManagedItemList extends React.Component {
                 let dateValue = formatDate(new Date(Date.parse(item[header.property])));
                 cell = (
                     <td>
-                        <div className="text--truncate" title={dateValue}>{dateValue}</div>
+                        <div className="managed-item__cell text--truncate" title={dateValue}>{dateValue}</div>
                     </td>
                 );
             } else if (header.format === 'status') {
@@ -117,7 +117,7 @@ class ManagedItemList extends React.Component {
 
                 cell = (
                     <td className={statusClass}>
-                        <div className="text--truncate align--center text--capitalize"
+                        <div className="managed-item__cell text--truncate align--center text--capitalize"
                             title={item[header.property]}>{item[header.property].toLowerCase()}</div>
                     </td>
                 );
@@ -125,7 +125,7 @@ class ManagedItemList extends React.Component {
                 let mappedValue = this.getMappedValue(item, header, header.map);
                 cell = (
                     <td>
-                        <div className="text--truncate"
+                        <div className="managed-item__cell text--truncate"
                             title={mappedValue}>{mappedValue}</div>
                     </td>
                 );
@@ -134,13 +134,13 @@ class ManagedItemList extends React.Component {
 
                 cell = (
                     <td>
-                        <div className="text--truncate" title={boolVal}>{boolVal}</div>
+                        <div className="managed-item__cell text--truncate" title={boolVal}>{boolVal}</div>
                     </td>
                 );
             } else {
                 cell = (
                     <td>
-                        <div className="text--truncate" title={item[header.property]}>{item[header.property]}</div>
+                        <div className="managed-item__cell text--truncate" title={item[header.property]}>{item[header.property]}</div>
                     </td>
                 );
             }
@@ -169,7 +169,7 @@ class ManagedItemList extends React.Component {
 
             cell = (
                 <td className="align--right">
-                    <div className="managed-item__actions">{renderedActions}</div>
+                    {renderedActions}
                 </td>
             );
 
@@ -200,7 +200,7 @@ class ManagedItemList extends React.Component {
         }
 
         return (
-            <a href={route} onClick={this.handleClickLink.bind(this, route)} className={`managed-item__button ${action.className}`} title={action.text}>
+            <a href={route} onClick={this.handleClickLink.bind(this, route)} className={`button button--sm button--${action.color}`} title={action.text}>
                 <span className={`icon icon-${action.iconClass}`}/><span className="sr-only">{action.text}</span>
             </a>
         );
@@ -233,7 +233,7 @@ class ManagedItemList extends React.Component {
         };
 
         return (
-            <button onClick={onClickHandler} className={`managed-item__button ${action.className}`} title={action.text}>
+            <button onClick={onClickHandler} className={`button button--sm button--${action.color}`} title={action.text}>
                 <span className={`icon icon-${action.iconClass}`}/><span className="sr-only">{action.text}</span>
             </button>
         );

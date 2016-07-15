@@ -137,6 +137,13 @@ class ManagedItemList extends React.Component {
                         <div className="managed-item__cell text--truncate" title={boolVal}>{boolVal}</div>
                     </td>
                 );
+            } else if (header.format === 'custom' && typeof header.customMap === 'function') {
+                var customValue = header.customMap(item);
+                cell = (
+                    <td>
+                        <div className="managed-item__cell text--truncate" title={customValue}>{customValue}</div>
+                    </td>
+                );
             } else {
                 cell = (
                     <td>

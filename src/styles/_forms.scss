@@ -280,18 +280,25 @@ input[type="checkbox"] {
 // Form control feedback states
 //
 // 
+.validation-icon {
+  
+}
 
 // Form validation states
 .has-success,
 .has-warning,
 .has-error {
+  position: relative;
 
   & .validation-icon:after {
     @extend .icon;
-    position: relative;
+    position: absolute;
     right: $half-spacer;
-    bottom: $font-size-lg + $half-spacer;
+    top: $half-spacer;
     font-size: $font-size-lg;
+  }
+  & label ~ .validation-icon:after {
+    top: 0;
   }
 }
 
@@ -420,7 +427,7 @@ input[type="checkbox"] {
       display: inline-block;
       margin-bottom: 0;
       vertical-align: middle;
-      line-height: 2.5;
+      //line-height: 2.5;
     }
 
     .form-control {

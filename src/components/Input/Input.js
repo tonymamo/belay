@@ -71,6 +71,7 @@ export default class Input extends Component {
             <div className={groupClassName}>
                 { label && <label className={labelClass} title={label}>{label}</label>}
                 {content}
+                { field && field.touched && <span className="validation-icon float-right"></span> }
                 { smallText && <div className={smallClass}>{smallText}</div>}
             </div>
         );

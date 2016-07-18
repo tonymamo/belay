@@ -24,14 +24,14 @@ export default class Input extends Component {
             groupClassName += ' has-error';
             errorMessage = field.error;
             smallText = errorMessage;
-            smallClass = 'text--danger';
+            smallClass = 'small text--danger';
         } else if (field && !field.error && field.touched) {
             groupClassName += ' has-success';
             smallText = helpText;
-            smallClass = 'text--success';
+            smallClass = 'small text--success';
         } else {
             smallText = helpText;
-            smallClass = 'text--muted';
+            smallClass = 'small text--muted';
         }
 
         const props = Object.assign({}, this.props, {
@@ -71,7 +71,7 @@ export default class Input extends Component {
             <div className={groupClassName}>
                 { label && <label className={labelClass} title={label}>{label}</label>}
                 {content}
-                { smallText && <div><small className={smallClass}>{smallText}</small></div>}
+                { smallText && <div className={smallClass}>{smallText}</div>}
             </div>
         );
     }

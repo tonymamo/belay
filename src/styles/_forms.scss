@@ -427,13 +427,14 @@ input[type="checkbox"] {
       display: inline-block;
       margin-bottom: 0;
       vertical-align: middle;
-      //line-height: 2.5;
+      margin-right: $half-spacer / 2;
     }
 
     .form-control {
       display: inline-block;
       width: auto; // Prevent labels from stacking above inputs in `.form-group`
       vertical-align: middle;
+      min-width: 220px; // magic number to allow for validation icon padding
     }
 
     // Make static controls behave like regular ones

@@ -20,6 +20,7 @@ class Button extends Component {
             `button--${color}`,
             {
                 'button--block': block,
+                'disabled': disabled,
                 [`button--${size}`]: size,
                 [`${className}`]: className
             }

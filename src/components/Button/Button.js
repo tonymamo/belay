@@ -37,7 +37,7 @@ class Button extends Component {
                 break;
             case 'link':
                 content = (
-                    <a href={to} {...this.props} className={classList} title={text} onClick={this.handleClick.bind(this, to)}>
+                    <a href={to} {...this.props} className={classList} title={text} disabled={disabled} onClick={this.handleClick.bind(this, to)}>
                         {icon && <span className={`icon icon-${icon}`}/>}
                         {text}
                     </a>

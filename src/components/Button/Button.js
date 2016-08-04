@@ -12,15 +12,15 @@ class Button extends Component {
     }
 
     render() {
-        let {type, to, color, icon, text, disabled, block, size, className} = this.props;
+        let {type, to, color, icon, text, disabled, block, size, className, onClick} = this.props;
 
         var classList = classNames(
             'button',
             'text--truncate',
             `button--${color}`,
             {
-                'button--block': block,
-                'disabled': disabled,
+                ['button--block']: block,
+                ['disabled']: disabled,
                 [`button--${size}`]: size,
                 [`${className}`]: className
             }
@@ -28,25 +28,18 @@ class Button extends Component {
 
         let content;
         switch (type.toLowerCase()) {
-            case 'button':
-                content = (
-                    <button {...this.props} className={classList} title={text} disabled={disabled}>
-                        {icon && <span className={`icon icon-${icon}`}/>}
-                        {text}
-                    </button>
-                );
-                break;
             case 'link':
                 content = (
-                    <a href={to} {...this.props} className={classList} title={text} disabled={disabled} onClick={this.handleClick.bind(this, to)}>
+                    <a href={to} className={classList} title={text} disabled={disabled} onClick={this.handleClick.bind(this, to)}>
                         {icon && <span className={`icon icon-${icon}`}/>}
                         {text}
                     </a>
                 );
                 break;
+            case 'button':
             default:
                 content = (
-                    <button {...this.props} className={classList} title={text} disabled={disabled}>
+                    <button type={type} className={classList} title={text} disabled={disabled} onClick={onClick}>
                         {icon && <span className={`icon icon-${icon}`}/>}
                         {text}
                     </button>

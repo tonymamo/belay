@@ -166,6 +166,15 @@
   margin-bottom: $spacer;
 }
 
+// animated focus when box gets an update
+.box--active {
+  animation: highlight-fade 2s;
+}
+
+@keyframes highlight-fade{
+  5% { background-color: $brand-info; }
+}
+
 
 
 

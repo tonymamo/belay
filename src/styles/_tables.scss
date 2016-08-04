@@ -191,3 +191,17 @@
     }
   }
 }
+
+
+
+
+// Managed Item List custom styles
+.managed-item__cell {
+  // forces ellipsis in conjunction with text--truncate
+  max-width: 99%;
+}
+
+.managed-item .button {
+  width: $spacer * 3;
+  margin: $border-width;
+}

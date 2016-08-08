@@ -57,7 +57,7 @@ export default class Alert extends Component {
                     }
                     {children}
                     { (undoAction && typeof undoAction === 'function') &&
-                        <a href="" className="alert__link" onClick={undoAction}>Undo</a>
+                        <a href="" className="alert__link" onClick={undoAction}><span className="icon icon-undo"/>Undo</a>
                     }
                 </p>
             </div>

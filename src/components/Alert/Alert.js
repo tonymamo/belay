@@ -21,16 +21,17 @@ export default class Alert extends Component {
             case 'success':
                 return 'check-circle';
             default:
-                return 'warning';
+                return 'info-circle';
         }
     }
 
     render() {
-        const { children, undoAction, close, dismissable, alertNumber, alertNumberTotal, type } = this.props;
+        const { children, undoAction, close, dismissable, alertNumber, alertNumberTotal, type, className } = this.props;
 
         var classList = classNames(
             'alert',
             `alert--${type}`,
+            className,
             { 'alert--dismissable' : dismissable }
         );
 

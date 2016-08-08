@@ -637,6 +637,11 @@ $alert-padding:               $spacer !default;
 $alert-border-radius:         $border-radius !default;
 $alert-link-font-weight:      bold !default;
 
+// Default
+$alert-default-bg:            $gray-lightest !default;
+$alert-default-text:          $gray-light !default;
+$alert-default-border:        $base-border-color !default;;
+
 // Success
 $alert-success-bg:            $state-success-bg !default;
 $alert-success-text:          $state-success-text !default;

@@ -69,7 +69,9 @@
 // Alternate styles
 //
 // Generate contextual modifier classes for colorizing the alert.
-
+.alert--default {
+  @include alert-variant($alert-default-bg, $alert-default-border, $alert-default-text);
+}
 .alert--success {
   @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
 }

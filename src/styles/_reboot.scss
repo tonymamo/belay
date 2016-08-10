@@ -284,6 +284,11 @@ input[type="search"] {
   -webkit-appearance: none;
 }
 
+// get rid of banana yellow fill color in Chrome
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 // todo: needed?
 output {
   display: inline-block;

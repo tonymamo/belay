@@ -6,6 +6,7 @@ import RadioInput from './RadioInput.js';
 import CheckboxInput from './CheckboxInput.js';
 import CheckboxGroup from './CheckboxGroup.js';
 import SelectInput from './SelectInput.js';
+import Password from './Password.js';
 
 export default class Input extends Component {
     constructor(props) {
@@ -41,6 +42,9 @@ export default class Input extends Component {
         switch (type.toLowerCase()) {
             case 'text':
                 content = <TextInput {...props}/> ;
+                break;
+            case 'password':
+                content = <Password {...props}/> ;
                 break;
             case 'textarea':
                 content = <Textarea {...props}/>;

@@ -1,10 +1,71 @@
 import React, { PropTypes } from 'react';
 import Button from '../Button/Button.js';
+import Pagination from '../Pagination/Pagination.js';
 
 class ManagedItemList extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            activePageNumber:  1
+        };
+    }
+
+    componentDidUpdate(previousProps, previousState) {
+        // If the previous amount of items were greater, and the current page is now empty, then we need to go back a page
+        if (
+            this.props.usePagination &&
+            previousProps.items.length > this.props.items.length &&
+            this.getItemsStart() >= this.props.items.length
+        ) {
+            const currentPage = this.state.activePageNumber;
+
+            if (currentPage > 1) {
+                this.setState({
+                    activePageNumber: currentPage - 1
+                });
+            }
+        }
+    }
+
+    setActivePageNumber(pageNumber, e) {
+        e.preventDefault();
+
+        this.setState({
+            activePageNumber: pageNumber
+        });
+    }
+
+    getItemsStart() {
+        const { itemsPerPage } = this.props,
+            currentPage = this.state.activePageNumber;
+
+        return Number(itemsPerPage) * (currentPage - 1);
+    }
+
+    getPageItems() {
+        let { items, usePagination, itemsPerPage} = this.props;
+        let pageItems = items;
+
+        // If pagination is enabled, set the items we're looping over to the current page's items
+        if (usePagination && itemsPerPage) {
+            itemsPerPage = Number(itemsPerPage);
+            pageItems = [];
+            let itemStart = this.getItemsStart();
+            let itemEnd = itemStart + itemsPerPage;
+
+            // Keep item end bound to the end of the list
+            if (itemEnd > items.length) {
+                itemEnd = items.length;
+            }
+
+            for (let i = itemStart; i < itemEnd; i++) {
+                pageItems.push(items[i]);
+            }
+        }
+
+        return pageItems;
     }
 
     renderTable() {
@@ -246,14 +307,30 @@ class ManagedItemList extends React.Component {
         );
     }
 
+    renderPagination() {
+        const {usePagination, items, itemsPerPage} = this.props;
+        let numberOfPages;
+
+        if (usePagination && items && items.length > 0) {
+            if ( items.length > itemsPerPage) {
+                numberOfPages = Math.ceil(items.length / itemsPerPage);
+
+                return (
+                    <Pagination numberOfPages={numberOfPages} activePageNumber={this.state.activePageNumber}
+                                onChangePage={this.setActivePageNumber.bind(this)}/>
+                );
+            }
+        }
+    }
+
     render() {
-        const { items } = this.props;
+        const { items, usePagination, itemsPerPage } = this.props;
 
         return (
             <div>
-                {items && items.length > 0 &&
-                    this.renderTable()
-                }
+                {items && items.length > 0 && this.renderTable(items, usePagination, itemsPerPage) }
+
+                { this.renderPagination() }
             </div>
         );
     }
@@ -263,11 +340,16 @@ ManagedItemList.propTypes = {
     type: PropTypes.oneOf(['managed']).isRequired,
     items: PropTypes.array.isRequired,
     headers: PropTypes.array.isRequired,
-    actions: PropTypes.array
+    actions: PropTypes.array,
+    itemsPerPage: PropTypes.number
 };
 
 ManagedItemList.contextTypes = {
     router: React.PropTypes.object.isRequired
+};
+
+ManagedItemList.defaultProps = {
+    itemsPerPage: 10
 };
 
 export default ManagedItemList;

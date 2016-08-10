@@ -7,6 +7,7 @@ import Grid from './components/Grid/Grid.js';
 import GridItem from './components/Grid/GridItem.js';
 import List from './components/List/List.js';
 import Logo from './components/Logo/Logo.js';
+import Pagination from './components/Pagination/Pagination.js';
 import validations from './validations/validations.js';
 
 export { Button };
@@ -18,4 +19,5 @@ export { Grid };
 export { GridItem };
 export { List };
 export { Logo };
+export { Pagination };
 export { validations };

@@ -25,9 +25,9 @@ textarea,
   border: $border-width solid $input-border;
    // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
   @include border-radius($input-border-radius);
-  @include box-shadow($input-box-shadow); 
+  @include box-shadow($input-box-shadow);
   @include transition(border-color ease-in-out $transition-time, box-shadow ease-in-out $transition-time);
-  
+
   // Make inputs at least the height of their button counterpart (base line-height + padding + border).
   // Only apply the height to textual inputs and some selcts.
   // &:not(textarea),
@@ -58,6 +58,7 @@ textarea,
   // disabled if the fieldset is disabled. Due to implementation difficulty, we
   // don't honor that edge case; we style them as disabled anyway.
   &:disabled,
+  &[disabled],
   &[readonly],
   fieldset[disabled] & {
     background-color: $input-bg-disabled;
@@ -279,9 +280,9 @@ input[type="checkbox"] {
 
 // Form control feedback states
 //
-// 
+//
 .validation-icon {
-  
+
 }
 
 // Form validation states

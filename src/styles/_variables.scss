@@ -77,7 +77,7 @@ $salmon:                      #d15d5d;
 $orange:                      #f1824e;
 
 // Assignment
-// You can add new vars here, but keep the names abstracted. 
+// You can add new vars here, but keep the names abstracted.
 $brand-primary:               $royal-blue !default;
 $brand-secondary:             $orange !default;
 $accent-one:                  $dark-blue;
@@ -193,7 +193,7 @@ $grid-gutter-width:           $spacer !default;
 // Typography
 //
 
-// Defaults 
+// Defaults
 $font-family-sans-serif:      'Open Sans', 'Helvetica Neue', helvetica, tahoma, arial, verdana, sans-serif !default;
 $font-family-serif:           'Merriweather', Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:       Menlo, Monaco, Consolas, "Courier New", monospace !default;
@@ -396,7 +396,7 @@ $input-padding-x:             .75rem !default;
 $input-padding-y:             .375rem !default;
 
 $input-bg:                    $white !default;
-$input-bg-disabled:           $gray-lightest !default;
+$input-bg-disabled:           $gray-lighter !default;
 
 $input-color:                 $gray !default;
 $input-border:                $base-border-color !default;

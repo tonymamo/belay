@@ -1,4 +1,4 @@
-import React, { PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 class Pagination extends React.Component {
     constructor(props) {
@@ -184,12 +184,12 @@ class Pagination extends React.Component {
 
 Pagination.proptypes = {
     onChangePage: PropTypes.func.isRequired,
+    numberOfPages: PropTypes.number.isRequired,
+    activePageNumber: PropTypes.number.isRequired,
     showPreviousNext: PropTypes.bool,
     showFirstLast: PropTypes.bool,
     useEllipsis: PropTypes.bool,
-    ellipsisPages: PropTypes.number,
-    numberOfPages: PropTypes.number.isRequired,
-    activePageNumber: PropTypes.number.isRequired
+    ellipsisPages: PropTypes.number
 };
 
 Pagination.defaultProps = {

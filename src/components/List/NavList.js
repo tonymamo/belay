@@ -73,7 +73,9 @@ NavList.propTypes = {
     linkMap: PropTypes.string.isRequired,
 
     // format: ':firstName :lastName' --  uses item[firstName] and item[lastName]
-    linkText: PropTypes.string.isRequired
+    linkText: PropTypes.string.isRequired,
+
+    usePagination: PropTypes.bool
 };
 
 NavList.contextTypes = {

@@ -3,11 +3,11 @@
 //
 
 h1, h2, h3, h4, h5, h6,
-.alpha, 
-.beta, 
-.gamma, 
-.delta, 
-.epsilon, 
+.alpha,
+.beta,
+.gamma,
+.delta,
+.epsilon,
 .zeta {
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
@@ -189,14 +189,6 @@ dt {
   text-align: right;
   border-right: .25rem solid $blockquote-border-color;
   border-left: 0;
-
-  // Account for citation
-  footer {
-    &:before { content: ""; }
-    &:after {
-      content: "\00A0 \2014"; // nbsp, em dash
-    }
-  }
 }
 
 //

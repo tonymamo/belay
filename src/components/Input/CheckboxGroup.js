@@ -1,10 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
 class CheckboxGroup extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     selectAll(e) {
         if (e.target.checked) {
             let v = this.props.options.map((item) => item.Key);
@@ -34,7 +30,7 @@ class CheckboxGroup extends Component {
 
     checkboxUpdateReduxFormValue(input) {
         let values = this.props.field.value;
-        const { checked, value} = input.target;
+        const { checked, value } = input.target;
 
         if (!Array.isArray(values)) {
             values = [values];
@@ -46,7 +42,11 @@ class CheckboxGroup extends Component {
             values = values.filter((item) => item !== value && item !== undefined);
         }
 
-        return this.props.field.onChange(values);
+        values = values.filter(item => !!item);
+
+        this.props.field.onFocus();
+        this.props.field.onChange(values);
+        return this.props.field.onBlur();
     }
 
     render() {
@@ -58,10 +58,10 @@ class CheckboxGroup extends Component {
                 <div className='checkbox'>
                     <label title='Select All or None'>
                         <input type='checkbox'
-                            name='selectAll'
-                            value='selectAll'
-                            onChange={this.selectAll.bind(this)}
-                            disabled={disabled}/>
+                               name='selectAll'
+                               value='selectAll'
+                               onChange={this.selectAll.bind(this)}
+                               disabled={disabled}/>
                         Select {!this.state.selectAllToggled ? 'All' : 'None'}
                     </label>
                 </div>
@@ -82,12 +82,12 @@ class CheckboxGroup extends Component {
 }
 
 CheckboxGroup.propTypes = {
-    type:    PropTypes.string.isRequired,
-    field:   PropTypes.object.isRequired,
-    label:   PropTypes.string,
+    type:      PropTypes.string.isRequired,
+    field:     PropTypes.object.isRequired,
+    label:     PropTypes.string,
     selectAll: PropTypes.bool,
-    disabled: PropTypes.bool,
-    options: PropTypes.array.isRequired,
+    disabled:  PropTypes.bool,
+    options:   PropTypes.array.isRequired,
 };
 
 export default CheckboxGroup;

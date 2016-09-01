@@ -12,7 +12,7 @@ class Button extends Component {
     }
 
     render() {
-        let {type, to, color, icon, text, disabled, block, size, className, onClick} = this.props;
+        let {type, to, color, icon, text, disabled, block, size, className, onClick, tabIndex} = this.props;
 
         var classList = classNames(
             'button',
@@ -30,7 +30,7 @@ class Button extends Component {
         switch (type.toLowerCase()) {
             case 'link':
                 content = (
-                    <a href={to} className={classList} title={text} disabled={disabled} onClick={this.handleClick.bind(this, to)}>
+                    <a href={to} className={classList} title={text} disabled={disabled} onClick={this.handleClick.bind(this, to)} tabIndex={tabIndex}>
                         {icon && <span className={`icon icon-${icon}`}/>}
                         {text}
                     </a>
@@ -39,7 +39,7 @@ class Button extends Component {
             case 'button':
             default:
                 content = (
-                    <button type={type} className={classList} title={text} disabled={disabled} onClick={onClick}>
+                    <button type={type} className={classList} title={text} disabled={disabled} onClick={onClick} tabIndex={tabIndex}>
                         {icon && <span className={`icon icon-${icon}`}/>}
                         {text}
                     </button>

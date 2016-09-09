@@ -163,15 +163,13 @@ class ManagedItemList extends React.Component {
             var renderedActions = [];
 
             actions.forEach((action) => {
-                if (action.hasAccess) {
-                    switch (action.type) {
-                        case 'button':
-                            renderedActions.push(this.createButtonAction(action, item));
-                            break;
-                        default:
-                            renderedActions.push(this.createLinkAction(action, item));
-                            break;
-                    }
+                switch (action.type) {
+                    case 'button':
+                        renderedActions.push(this.createButtonAction(action, item));
+                        break;
+                    default:
+                        renderedActions.push(this.createLinkAction(action, item));
+                        break;
                 }
             });
 

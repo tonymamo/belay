@@ -87,7 +87,8 @@ class ManagedItemList extends React.Component {
         // for each header, add the value from this item
         headers.forEach((header) => {
             if (header.format === 'date') {
-                let dateValue = formatDate(new Date(Date.parse(item[header.property])));
+                let dateValue = new Date(Date.parse(item[header.property]));
+                dateValue = dateValue.toLocaleDateString();
                 cell = (
                     <td>
                         <div className="managed-item__cell text--truncate" title={dateValue}>{dateValue}</div>

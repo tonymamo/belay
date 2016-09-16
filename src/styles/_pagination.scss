@@ -1,5 +1,10 @@
+.pagination-container {
+    max-width: $spacer * 24;
+    margin: 0 auto;
+}
+
 .pagination {
-  display: inline-block;
+  display: flex;
   padding-left: 0;
   margin-top: $spacer-y;
   margin-bottom: $spacer-y;
@@ -7,30 +12,33 @@
 
   > .pagination__item {
     display: inline; // Remove list-style and block-level defaults
+    flex-grow: 1;
 
     > a,
     > span {
-      position: relative;
-      float: left; // Collapse white-space
+      //position: relative;
+      //float: left; // Collapse white-space
       padding: $pagination-padding-y $pagination-padding-x;
-      margin-left: -1px;
+      //margin-left: -1px;
       line-height: $line-height;
       color: $pagination-color;
       text-decoration: none;
       background-color: $pagination-bg;
-      border: 1px solid $pagination-border;
+      border: $border-width solid $pagination-border;
+      border-right: 0;
     }
     &:first-child {
       > a,
       > span {
-        margin-left: 0;
-        @include border-left-radius($border-radius);
+            margin-left: 0;
+            @include border-left-radius($border-radius);
       }
     }
     &:last-child {
       > a,
       > span {
-        @include border-right-radius($border-radius);
+            @include border-right-radius($border-radius);
+            border-right: $border-width solid $pagination-border;
       }
     }
   }

@@ -48,7 +48,7 @@ export default class Alert extends Component {
                         <span className="sr-only">Close</span>
                     </button>
                 }
-                <p>
+                <div>
                     <span className={iconClass}/>
 
                     {alertNumber && alertNumberTotal && alertNumberTotal > 1 &&
@@ -60,7 +60,7 @@ export default class Alert extends Component {
                     { (undoAction && typeof undoAction === 'function') &&
                         <a href="" className="alert__link" onClick={undoAction}><span className="icon icon-undo"/>Undo</a>
                     }
-                </p>
+                </div>
             </div>
         );
     }

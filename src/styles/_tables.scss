@@ -104,18 +104,27 @@
 // Responsive tables
 //
 // Wrap your tables in `.responsive-table` and we'll make them mobile friendly
-// by enabling horizontal scrolling. 
+// by enabling horizontal scrolling.
 
 .responsive-table {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  border: $border-width solid $table-border-color;
-  margin-bottom: $spacer;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background:
+        linear-gradient(90deg,  $body-bg 100%, rgba(255,255,255,0)) 0 0,
+        linear-gradient(270deg, $body-bg 100%, rgba(255,255,255,0)) 100% 0,
+        linear-gradient(90deg,  $table-border-color 5%, rgba(255,255,255,0)) 0 0,
+        linear-gradient(270deg, $table-border-color 0, rgba(255,255,255,0)) 100% 0;
+    background-repeat: no-repeat;
+    background-color: $body-bg;
+    background-size: $spacer 100%;
+    background-attachment: local,local,scroll,scroll;
+    border: $border-width solid $table-border-color;
+    margin-bottom: $spacer;
 
-  & .table {
-    margin: 0;
-  }
+    & .table {
+        margin: 0;
+        background-color: transparent;
+    }
 }
 
 

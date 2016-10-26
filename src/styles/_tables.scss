@@ -112,8 +112,8 @@
     background:
         linear-gradient(90deg,  $body-bg 100%, rgba(255,255,255,0)) 0 0,
         linear-gradient(270deg, $body-bg 100%, rgba(255,255,255,0)) 100% 0,
-        linear-gradient(90deg,  $table-border-color 5%, rgba(255,255,255,0)) 0 0,
-        linear-gradient(270deg, $table-border-color 0, rgba(255,255,255,0)) 100% 0;
+        linear-gradient(90deg,  $table-border-color 0%, rgba(255,255,255,0)) 0 0,
+        linear-gradient(270deg, $table-border-color 0%, rgba(255,255,255,0)) 100% 0;
     background-repeat: no-repeat;
     background-color: $body-bg;
     background-size: $spacer 100%;

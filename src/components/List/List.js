@@ -17,6 +17,8 @@ class List extends React.Component {
     componentDidUpdate(previousProps, previousState) {
         // If the previous amount of items were greater, and the current page is now empty, then we need to go back a page
         if (
+            this.state.activePageNumber > 1 &&
+            previousProps && previousProps.items && this.props && this.props.items &&
             previousProps.items.length > this.props.items.length &&
             this.getItemsStart() >= this.props.items.length
         ) {

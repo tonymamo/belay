@@ -1,18 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default class Alert extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+class Alert extends Component {
     close() {
         this.props.opened = false;
         this.forceUpdate();
     }
 
     getTypeIcon() {
-        switch ( this.props.type ) {
+        switch( this.props.type ) {
             case 'danger':
             case 'warning':
                 return 'warning';
@@ -32,7 +28,7 @@ export default class Alert extends Component {
             'alert',
             `alert--${type}`,
             className,
-            { 'alert--dismissable' : dismissable }
+            { 'alert--dismissable': dismissable }
         );
 
         var iconClass = classNames(
@@ -42,7 +38,8 @@ export default class Alert extends Component {
 
         return (
             <div className={classList}>
-                { dismissable &&
+                {
+                    dismissable &&
                     <button onClick={close || this.close} className="alert__close" type="button" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         <span className="sr-only">Close</span>
@@ -51,13 +48,15 @@ export default class Alert extends Component {
                 <div>
                     <span className={iconClass}/>
 
-                    {alertNumber && alertNumberTotal && alertNumberTotal > 1 &&
+                    {
+                        alertNumber && alertNumberTotal && alertNumberTotal > 1 &&
                         <small>
                             <em>Message {alertNumber} of {alertNumberTotal}: </em>
                         </small>
                     }
                     {children}
-                    { (undoAction && typeof undoAction === 'function') &&
+                    {
+                        (undoAction && typeof undoAction === 'function') &&
                         <a href="" className="alert__link" onClick={undoAction}><span className="icon icon-undo"/>Undo</a>
                     }
                 </div>
@@ -68,8 +67,8 @@ export default class Alert extends Component {
 
 Alert.propTypes = {
     dismissable: PropTypes.bool,
-    type: PropTypes.string.isRequired,
-    undoAction: PropTypes.func
+    type:        PropTypes.string.isRequired,
+    undoAction:  PropTypes.func
 };
 
 export default Alert;

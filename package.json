@@ -28,6 +28,11 @@
       "name": "Tony Mamo",
       "email": "tony@tonymamo.com",
       "url": "tonymamo.com"
+    },
+    {
+      "name": "Kevin Shreve",
+      "email": "kshreve@gmail.com",
+      "url": "kevinshreve.com"
     }
   ],
   "license": "MIT",

@@ -7,6 +7,7 @@ import CheckboxInput from './CheckboxInput.js';
 import CheckboxGroup from './CheckboxGroup.js';
 import SelectInput from './SelectInput.js';
 import Password from './Password.js';
+import MultiselectInput from './Multiselect.js';
 
 export default class Input extends Component {
     constructor(props) {
@@ -65,6 +66,9 @@ export default class Input extends Component {
                 break;
             case 'select':
                 content = <SelectInput {...props}/>;
+                break;
+            case 'multiselect':
+                content = <MultiselectInput {...props}/>;
                 break;
             default:
                 content = <TextInput {...props}/>;

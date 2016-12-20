@@ -68,6 +68,8 @@ export default class Input extends Component {
                 content = <SelectInput {...props}/>;
                 break;
             case 'multiselect':
+                // Clear out onBlur, so that it doesn't affect the values
+                field.onBlur = (e) => e.preventDefault();
                 content = <MultiselectInput {...props}/>;
                 break;
             default:

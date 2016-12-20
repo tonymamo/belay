@@ -128,9 +128,8 @@ input.rw-input::-moz-focus-inner {
 }
 
 .rw-input {
-  color: #555555;
-  height: 36px;
-  padding: 0.429em 0.857em;
+  color: $text-dark;
+  padding: $input-padding-y ($half-spacer / 2);
   background-color: $body-bg;
 }
 
@@ -312,6 +311,8 @@ ul.rw-list.rw-list-grouped > li.rw-list-option,
 
 .rw-widget {
   position: relative;
+  border: $border-width solid $base-border-color;
+  border-radius: $input-border-radius;
 }
 
 .rw-open.rw-widget,
@@ -552,10 +553,9 @@ ul.rw-list.rw-list-grouped > li.rw-list-option,
 .rw-popup-container {
   position: absolute;
   top: 100%;
-  margin-top: $border-width;
   z-index: 1005;
-  left: -11px;
-  right: -11px;
+  left: -($half-spacer);
+  right: -($half-spacer);
 }
 
 .rw-popup-container.rw-dropup {
@@ -754,8 +754,6 @@ ul.rw-list.rw-list-grouped > li.rw-list-option,
   border-radius: $border-radius;
   position: relative;
   cursor: text;
-  top: -$input-padding-y;
-  left: -$input-padding-x;
 }
 
 .rw-multiselect-wrapper:before,

@@ -7,7 +7,6 @@ class MultiselectInput extends Component {
 
         return (
             <Multiselect data={options}
-                         className="form-control"
                          valueField="Key"
                          disabled={this.props.disabled}
                          textField="Value"

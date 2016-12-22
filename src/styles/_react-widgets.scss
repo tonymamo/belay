@@ -313,6 +313,7 @@ ul.rw-list.rw-list-grouped > li.rw-list-option,
   position: relative;
   border: $border-width solid $base-border-color;
   border-radius: $input-border-radius;
+  padding: 0 $input-padding-x;
 }
 
 .rw-open.rw-widget,

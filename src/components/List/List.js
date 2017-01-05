@@ -29,6 +29,14 @@ class List extends React.Component {
                     activePageNumber: currentPage - 1
                 });
             }
+
+            const maxPages = Math.ceil(this.props.items.length / this.props.itemsPerPage);
+
+            if (currentPage > maxPages ) {
+                this.setState({
+                    activePageNumber: maxPages
+                });
+            }
         }
     }
 

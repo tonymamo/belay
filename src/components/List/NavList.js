@@ -7,7 +7,7 @@ class NavList extends React.Component {
     }
 
     renderNavList() {
-        const { items, linkText, linkMap, location } = this.props;
+        const { items, linkText, linkMap } = this.props;
         const renderedNavItems = [];
 
         items.forEach((item, index) => {
@@ -22,7 +22,11 @@ class NavList extends React.Component {
                 return item[p1];
             });
 
-            let activeClass = (link === location.pathname) ? 'list-group__item--active' : '';
+            /*TODO: FIX
+             let activeClass = (link === window.location.pathname) ? 'list-group__item--active' : '';
+             */
+            let activeClass = '';
+            
             // If there was an overriden function to render this item, call it
             if ( this.props.renderItem ) {
                 renderedNavItems.push(

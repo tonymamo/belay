@@ -1,21 +1,16 @@
 import React, { PropTypes } from 'react';
 
 class NavList extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     handleNavClick(link, event) {
         event.preventDefault();
         this.context.router.push(link);
     }
 
     renderNavList() {
-        const { items, linkText, linkMap } = this.props;
+        const { items, linkText, linkMap, location } = this.props;
         const renderedNavItems = [];
 
-        items.forEach((item) => {
+        items.forEach((item, index) => {
             // :variable regex
             let regex = /\:(\w+)/g;
 
@@ -27,32 +22,32 @@ class NavList extends React.Component {
                 return item[p1];
             });
 
-            let activeClass = (link === window.location.pathname) ? 'list-group__item--active' : '';
-
+            let activeClass = (link === location.pathname) ? 'list-group__item--active' : '';
             // If there was an overriden function to render this item, call it
-            if (this.props.renderItem) {
+            if ( this.props.renderItem ) {
                 renderedNavItems.push(
                     this.props.renderItem({
                         item,
                         link,
                         text,
-                        activeClass
+                        activeClass,
+                        index
                     })
                 );
             } else {
-                renderedNavItems.push( this.renderDefault(text, link, activeClass) );
+                renderedNavItems.push(this.renderDefault(text, link, activeClass, index));
             }
         });
 
         return renderedNavItems;
     }
 
-    renderDefault(text, link, activeClass) {
+    renderDefault(text, link, activeClass, index) {
         return (
             <a className={`list-group__item ${activeClass}`}
-                href={link}
-                key={link}
-                onClick={this.handleNavClick.bind(this, link)}>{text}</a>
+               href={link}
+               key={index}
+               onClick={this.handleNavClick.bind(this, link)}>{text}</a>
         );
     }
 
@@ -66,7 +61,7 @@ class NavList extends React.Component {
 }
 
 NavList.propTypes = {
-    type: PropTypes.oneOf(['nav']).isRequired,
+    type:  PropTypes.oneOf(['nav']).isRequired,
     items: PropTypes.array.isRequired,
 
     // format: '/test/:property/thing' --  uses item[property]

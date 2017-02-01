@@ -8,6 +8,7 @@ import CheckboxGroup from './CheckboxGroup.js';
 import SelectInput from './SelectInput.js';
 import Password from './Password.js';
 import MultiselectInput from './Multiselect.js';
+import RichTextEditor from './RichTextEditor.js';
 
 export default class Input extends Component {
     constructor(props) {
@@ -71,6 +72,9 @@ export default class Input extends Component {
                 // Clear out onBlur, so that it doesn't affect the values
                 field.onBlur = (e) => e.preventDefault();
                 content = <MultiselectInput {...props}/>;
+                break;
+            case 'richtext':
+                content = <RichTextEditor {...props}/>;
                 break;
             default:
                 content = <TextInput {...props}/>;

@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/flashrecruit/belay#readme",
   "peerDependencies": {
+    "draft-js": "^0.10.0",
     "react": ">=0.14.0",
     "react-dom": ">=0.14.0"
   },

@@ -23,6 +23,14 @@ module.exports = {
 
     externals: [
         {
+            'draft-js': {
+                root: 'DraftJS',
+                commonjs2: 'draft-js',
+                commonjs: 'draft-js',
+                amd: 'draft-js'
+            }
+        },
+        {
             'react': {
                 root: 'React',
                 commonjs2: 'react',

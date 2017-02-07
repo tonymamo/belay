@@ -239,9 +239,8 @@ input.rw-input::-moz-focus-inner {
 ul.rw-list,
 .rw-selectlist {
   margin: 0;
-  //padding-left: 0;
   list-style: none;
-  padding: $half-spacer;
+  padding: 0;
   overflow: auto;
   outline: 0;
   height: 100%;
@@ -265,9 +264,7 @@ ul.rw-list > li.rw-list-option,
 ul.rw-list > li.rw-list-empty,
 .rw-selectlist > li.rw-list-option,
 .rw-selectlist > li.rw-list-empty {
-  padding-left: $half-spacer;
-  padding-right: $half-spacer;
-  margin-bottom: ($half-spacer / 2);
+  padding: $input-padding-y $input-padding-x;
 }
 
 ul.rw-list > li.rw-list-option,
@@ -533,11 +530,11 @@ ul.rw-list.rw-list-grouped > li.rw-list-option,
   border-bottom-left-radius: $border-radius;
   border: $base-border-color $border-width solid;
   background: $body-bg;
-  padding: 2px;
+  padding: $half-spacer;
   overflow: auto;
   margin-bottom: $half-spacer;
-  left: $half-spacer;
-  right: $half-spacer;
+  left: 0;
+  right: 0;
 }
 
 .rw-dropup > .rw-popup {
@@ -555,8 +552,8 @@ ul.rw-list.rw-list-grouped > li.rw-list-option,
   position: absolute;
   top: 100%;
   z-index: 1005;
-  left: -($half-spacer);
-  right: -($half-spacer);
+  left: 0;
+  right: 0;
 }
 
 .rw-popup-container.rw-dropup {
@@ -839,7 +836,7 @@ ul.rw-list.rw-list-grouped > li.rw-list-option,
 
 .rw-multiselect-taglist > li.rw-state-focus {
   background-color: $body-bg;
-  border: #66afe9 $border-width solid;
+  border: $input-border-focus $border-width solid;
   color: $text-dark;
 }
 

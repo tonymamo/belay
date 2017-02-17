@@ -11,8 +11,14 @@ class GeoSuggest extends Component {
         const { field, latitude, longitude } = this.props;
 
         field.onChange(event.label);
-        latitude.onChange(event.location.lat);
-        longitude.onChange(event.location.lng);
+
+        if ( latitude && latitude.onChange ) {
+            latitude.onChange(event.location.lat);
+        }
+
+        if ( longitude && longitude.onChange ) {
+            longitude.onChange(event.location.lng);
+        }
     }
 
     render() {
@@ -24,29 +30,12 @@ class GeoSuggest extends Component {
             field
         } = this.props;
 
-        let google = google || false;
-
-        // google API isn't available
-        if ( !google ) {
-            return (
-                <input {...this.props} {...this.props.field} className="form-control"/>
-            );
-        }
-
-        let googleLocation;
-
-        if ( !location ) {
-            googleLocation = new google.maps.LatLng(41.8333908, -88.0130256);
-        } else {
-            googleLocation = location;
-        }
-
         return (
             <Geosuggest
                 disabled={disabled}
                 placeholder="Location"
                 radius="20"
-                location={googleLocation}
+                location={location}
                 onSuggestSelect={this.onGeoSuggestSelect.bind(this)}
                 {...field}
             />
@@ -56,10 +45,10 @@ class GeoSuggest extends Component {
 
 GeoSuggest.PropTypes = {
     disabled:         PropTypes.bool,
-    location:         PropTypes.object,
+    location:         PropTypes.object.isRequired,
     field:            PropTypes.object.isRequired,
-    latitude:         PropTypes.object.isRequired,
-    longitude:        PropTypes.object.isRequired,
+    latitude:         PropTypes.object,
+    longitude:        PropTypes.object
 };
 
 export default GeoSuggest;

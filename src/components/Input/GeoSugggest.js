@@ -37,7 +37,6 @@ class GeoSuggest extends Component {
                 radius="20"
                 location={googleLocation}
                 onSuggestSelect={this.onGeoSuggestSelect.bind(this)}
-                className="form-control"
                 {...field}
             />
         );

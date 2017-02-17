@@ -24,6 +24,15 @@ class GeoSuggest extends Component {
             field
         } = this.props;
 
+        let google = google || false;
+
+        // google API isn't available
+        if ( !google ) {
+            return (
+                <input {...this.props} {...this.props.field} className="form-control"/>
+            );
+        }
+
         let googleLocation;
 
         if ( !location ) {

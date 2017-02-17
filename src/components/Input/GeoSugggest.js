@@ -10,7 +10,9 @@ class GeoSuggest extends Component {
         // note that field = location
         const { field, latitude, longitude } = this.props;
 
-        field.onChange(event.label);
+        if ( field && field.onChange ) {
+            field.onChange(event.label);
+        }
 
         if ( latitude && latitude.onChange ) {
             latitude.onChange(event.location.lat);
@@ -33,8 +35,8 @@ class GeoSuggest extends Component {
         return (
             <Geosuggest
                 disabled={disabled}
-                placeholder="Location"
-                radius="20"
+                placeholder={placeholder}
+                radius={radius}
                 location={location}
                 onSuggestSelect={this.onGeoSuggestSelect.bind(this)}
                 {...field}
@@ -44,11 +46,18 @@ class GeoSuggest extends Component {
 }
 
 GeoSuggest.PropTypes = {
-    disabled:         PropTypes.bool,
+    placeholder:      PropTypes.string,
+    radius:           PropTypes.string,
     location:         PropTypes.object.isRequired,
-    field:            PropTypes.object.isRequired,
+    field:            PropTypes.object,
     latitude:         PropTypes.object,
     longitude:        PropTypes.object
 };
 
+GeoSuggest.defaultProps = {
+    placeholder: 'Location',
+    radius:      '25'
+};
+
 export default GeoSuggest;
+

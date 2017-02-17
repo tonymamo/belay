@@ -24,12 +24,18 @@ class GeoSuggest extends Component {
             field
         } = this.props;
 
+        let googleLocation;
+
+        if ( !location ) {
+            googleLocation = new google.maps.LatLng(41.8333908, -88.0130256);
+        }
+
         return (
             <Geosuggest
                 disabled={disabled}
                 placeholder="Location"
                 radius="20"
-                location={location}
+                location={googleLocation}
                 onSuggestSelect={this.onGeoSuggestSelect.bind(this)}
                 className="form-control"
                 {...field}

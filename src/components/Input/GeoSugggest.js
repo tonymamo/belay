@@ -28,6 +28,8 @@ class GeoSuggest extends Component {
 
         if ( !location ) {
             googleLocation = new google.maps.LatLng(41.8333908, -88.0130256);
+        } else {
+            googleLocation = location;
         }
 
         return (

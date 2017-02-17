@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "react-geosuggest": "^2.1.0",
     "react-widgets": "^3.4.5"
   }
 }

@@ -9,6 +9,7 @@ import SelectInput from './SelectInput.js';
 import Password from './Password.js';
 import MultiselectInput from './Multiselect.js';
 import RichTextEditor from './RichTextEditor.js';
+import GeoSuggest from './GeoSugggest.js';
 
 export default class Input extends Component {
     constructor(props) {
@@ -75,6 +76,10 @@ export default class Input extends Component {
                 break;
             case 'richtext':
                 content = <RichTextEditor {...props}/>;
+                break;
+            case 'geo':
+            case 'geosuggest':
+                content = <GeoSuggest {...props} />;
                 break;
             default:
                 content = <TextInput {...props}/>;

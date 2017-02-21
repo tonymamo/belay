@@ -7,7 +7,7 @@ class RichTextEditor extends Component {
           super(props);
           this.state = {editorState: EditorState.createEmpty()};
 
-          this.focus = () => this.refs.editor.focus();
+          this.focus = () => this.focus.bind(this);
           this.onChange = (editorState) => this.setState({editorState});
 
           this.handleKeyCommand = (command) => this._handleKeyCommand(command);
@@ -47,6 +47,10 @@ class RichTextEditor extends Component {
               inlineStyle
             )
           );
+        }
+
+        focus() {
+            this.textInput.focus();
         }
 
         render() {
@@ -89,7 +93,7 @@ class RichTextEditor extends Component {
                         onChange={this.onChange}
                         onTab={this.onTab}
                         placeholder={this.props.placeholder}
-                        ref="editor"
+                        ref={(input) => { this.textInput = input; }}
                         spellCheck={true}
                     />
                 </div>
@@ -122,7 +126,7 @@ export default RichTextEditor;
         }
       }
 
-      class StyleButton extends React.Component {
+      class StyleButton extends Component {
         constructor() {
           super();
           this.onToggle = (e) => {
@@ -151,7 +155,7 @@ export default RichTextEditor;
       }
 
       const BLOCK_TYPES = [
-        {label: 'H3', style: 'header-three', icon: 'header'},
+        {label: 'Heading', style: 'header-three', icon: 'header'},
         {label: 'Blockquote', style: 'blockquote', icon: 'quote-left'},
         {label: 'UL', style: 'unordered-list-item', icon: 'list-ul'},
         {label: 'OL', style: 'ordered-list-item', icon: 'list-ol'},

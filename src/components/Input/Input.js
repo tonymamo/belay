@@ -1,35 +1,32 @@
 import React, { Component, PropTypes } from 'react';
-import TextInput from './TextInput.js';
-import Textarea from './Textarea.js';
-import SearchInput from './SearchInput.js';
-import RadioInput from './RadioInput.js';
-import CheckboxInput from './CheckboxInput.js';
-import CheckboxGroup from './CheckboxGroup.js';
-import SelectInput from './SelectInput.js';
-import Password from './Password.js';
-import MultiselectInput from './Multiselect.js';
-import RichTextEditor from './RichTextEditor.js';
-import GeoSuggest from './GeoSugggest.js';
+
+import TextInput from './TextInput';
+import Textarea from './Textarea';
+import SearchInput from './SearchInput';
+import RadioInput from './RadioInput';
+import CheckboxInput from './CheckboxInput';
+import CheckboxGroup from './CheckboxGroup';
+import SelectInput from './SelectInput';
+import Password from './Password';
+import MultiselectInput from './Multiselect';
+import GeoSuggest from './GeoSugggest';
 
 export default class Input extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        const { type, field, label, labelClass, helpText } = this.props;
-        let content;
-        let groupClassName = 'form-group';
-        let errorMessage = '';
-        let smallText, smallClass;
-        let inputClass = this.props.className;
+        const { type, field, label, labelClass, helpText, component } = this.props;
+        let content,
+            groupClassName = 'form-group',
+            errorMessage = '',
+            smallText,
+            smallClass,
+            inputClass = this.props.className;
 
-        if (field && field.error && field.touched) {
+        if ( field && field.error && field.touched ) {
             groupClassName += ' has-error';
             errorMessage = field.error;
             smallText = errorMessage;
             smallClass = 'small text--danger';
-        } else if (field && !field.error && field.touched) {
+        } else if ( field && !field.error && field.touched ) {
             groupClassName += ' has-success';
             smallText = helpText;
             smallClass = 'small text--success';
@@ -42,12 +39,12 @@ export default class Input extends Component {
             className: inputClass
         });
 
-        switch (type.toLowerCase()) {
+        switch( type.toLowerCase() ) {
             case 'text':
-                content = <TextInput {...props}/> ;
+                content = <TextInput {...props}/>;
                 break;
             case 'password':
-                content = <Password {...props}/> ;
+                content = <Password {...props}/>;
                 break;
             case 'textarea':
                 content = <Textarea {...props}/>;
@@ -74,12 +71,12 @@ export default class Input extends Component {
                 field.onBlur = (e) => e.preventDefault();
                 content = <MultiselectInput {...props}/>;
                 break;
-            case 'richtext':
-                content = <RichTextEditor {...props}/>;
-                break;
             case 'geo':
             case 'geosuggest':
                 content = <GeoSuggest {...props} />;
+                break;
+            case 'component':
+                content = component;
                 break;
             default:
                 content = <TextInput {...props}/>;
@@ -90,7 +87,7 @@ export default class Input extends Component {
             <div className={groupClassName}>
                 { label && <label className={labelClass} title={label}>{label}</label>}
                 {content}
-                { field && field.touched && <span className="validation-icon float-right"></span> }
+                { field && field.touched && <span className="validation-icon float-right"/> }
                 { smallText && <div className={smallClass}>{smallText}</div>}
             </div>
         );
@@ -98,7 +95,7 @@ export default class Input extends Component {
 }
 
 Input.propTypes = {
-    label:    PropTypes.string,
-    field:    PropTypes.object,
-    type:     PropTypes.string.isRequired,
+    label: PropTypes.string,
+    field: PropTypes.object,
+    type:  PropTypes.string.isRequired,
 };

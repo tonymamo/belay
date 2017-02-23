@@ -23,65 +23,57 @@ module.exports = {
 
     externals: [
         {
-            'draft-js': {
-                root: 'DraftJS',
-                commonjs2: 'draft-js',
-                commonjs: 'draft-js',
-                amd: 'draft-js'
-            }
-        },
-        {
             'react': {
-                root: 'React',
+                root:      'React',
                 commonjs2: 'react',
-                commonjs: 'react',
-                amd: 'react'
+                commonjs:  'react',
+                amd:       'react'
             }
         },
         {
             'react-dom': {
-                root: 'ReactDOM',
+                root:      'ReactDOM',
                 commonjs2: 'react-dom',
-                commonjs: 'react-dom',
-                amd: 'react-dom'
+                commonjs:  'react-dom',
+                amd:       'react-dom'
             }
         }
     ],
 
     output: {
-        filename: 'index.js',
-        path: path.join(__dirname, 'dist'),
-        library: 'belay',
+        filename:      'index.js',
+        path:          path.join(__dirname, 'dist'),
+        library:       'belay',
         libraryTarget: 'commonjs2'
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx', '.scss', '.json'],
+        extensions:         ['', '.js', '.jsx', '.scss', '.json'],
         modulesDirectories: ['node_modules']
     },
 
     module: {
         loaders: [
             {
-                test: /\.(jsx|js)?$/,
-                loader: 'babel',
+                test:    /\.(jsx|js)?$/,
+                loader:  'babel',
                 exclude: /(node_modules)/,
                 include: path.join(__dirname, 'src'),
-                query: {
+                query:   {
                     presets: ['es2015', 'react']
                 }
             },
             {
-                test: /\.css$/,
+                test:    /\.css$/,
                 loaders: ['style', 'css', 'postcss']
             },
             {
-                test: /\.(scss)/,
+                test:    /\.(scss)/,
                 loaders: ['style', 'css', 'postcss', 'sass']
             },
             {
-                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-                loader : 'file-loader'
+                test:   /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+                loader: 'file-loader'
             }
         ]
     },

@@ -1,13 +1,12 @@
 import gulp from 'gulp';
 import loadPlugins from 'gulp-load-plugins';
 import webpack from 'webpack';
-import rimraf from 'rimraf';
 
 const plugins = loadPlugins();
 
 import componentsWebpackConfig from './webpack.config.js';
 
-gulp.task('components-js', ['clean'], (cb) => {
+gulp.task('components-js', (cb) => {
     webpack(componentsWebpackConfig, (err, stats) => {
         if(err) throw new plugins.util.PluginError('webpack', err);
 
@@ -17,42 +16,37 @@ gulp.task('components-js', ['clean'], (cb) => {
     });
 });
 
-gulp.task('copy-package-json', ['clean'], () => {
+gulp.task('copy-package-json', () => {
     return gulp.src('package.json')
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('copy-license', ['clean'], () => {
+gulp.task('copy-license', () => {
     return gulp.src('LICENSE')
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('copy-readme', ['clean'], () => {
+gulp.task('copy-readme', () => {
     return gulp.src('README.md')
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('copy-docs', ['clean'], () => {
+gulp.task('copy-docs', () => {
     return gulp.src('docs/**/*.md')
     .pipe(gulp.dest('./dist/docs'));
 });
 
-gulp.task('copy-sass', ['clean'], () => {
+gulp.task('copy-sass', () => {
     return gulp.src('src/styles/**/*.*')
     .pipe(gulp.dest('./dist/lib/styles'));
 });
 
-gulp.task('copy-fonts', ['clean'], () => {
+gulp.task('copy-fonts', () => {
     return gulp.src('src/fonts/**/*.*')
     .pipe(gulp.dest('./dist/lib/fonts'));
 });
 
-gulp.task('clean', (cb) => {
-    rimraf('./dist/*', cb);
-});
-
 gulp.task('build', [
-    'clean',
     'copy-readme',
     'copy-docs',
     'copy-package-json',

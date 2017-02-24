@@ -8,7 +8,6 @@
 .RichEditor-editor {
   border-top: $border-width solid $input-border;
   cursor: text;
-  margin-top: $half-spacer;
 }
 
 .DraftEditor-root {
@@ -48,14 +47,7 @@
 
 .RichEditor-controls {
   user-select: none;
-}
-
-.RichEditor-styleButton {
-  color: #999;
-  cursor: pointer;
-  margin-right: 16px;
-  padding: 2px 0;
-  display: inline-block;
+  margin-bottom: $half-spacer;
 }
 
 .RichEditor-root--disabled {

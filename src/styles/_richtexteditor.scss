@@ -58,6 +58,15 @@
   display: inline-block;
 }
 
-.RichEditor-activeButton {
-  color: #5890ff;
+.RichEditor-root--disabled {
+    background: $input-bg-disabled;
+    cursor: $cursor-disabled;
+
+    & .RichEditor-editor {
+        cursor: $cursor-disabled;
+    }
+
+     & .RichEditor-controls {
+        display: none;
+     }
 }

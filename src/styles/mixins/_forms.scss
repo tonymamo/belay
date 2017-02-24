@@ -4,54 +4,56 @@
 // and successes.
 
 @mixin form-control-validation($state, $color) {
-  // Color the label and help text
-  & > *,
-  .rw-widget,
-  .help-block,
-  .form-control-label,
-  .radio,
-  .checkbox,
-  .radio-inline,
-  .checkbox-inline,
-  &.radio label,
-  &.checkbox label,
-  &.radio-inline label,
-  &.checkbox-inline label  {
-    color: $color !important;
-  }
-  // Set the border and box shadow on specific inputs to match
-  input[type="text"],
-  input[type="date"],
-  input[type="file"],
-  input[type="email"],
-  input[type="password"],
-  // react widgets override
-  .rw-widget,
-  .rw-widget:hover,
-  select,
-  textarea,
-  .form-control {
-    padding-right: ($input-padding-x * 3) !important;
-    border-color: $color;
-    // @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
-
-    &:focus {
-      // border-color: darken($border-color, 10%);
-      // $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($border-color, 20%);
-      // @include box-shadow($shadow);
+    // Color the label and help text
+    & > *,
+    .rw-widget,
+    .help-block,
+    .form-control-label,
+    .radio,
+    .checkbox,
+    .radio-inline,
+    .checkbox-inline,
+    &.radio label,
+    &.checkbox label,
+    &.radio-inline label,
+    &.checkbox-inline label,
+    // special class for Geosuggest widget validation
+    .geosuggest__input  {
+        color: $color !important;
     }
-  }
+    // Set the border and box shadow on specific inputs to match
+    input[type="text"],
+    input[type="date"],
+    input[type="file"],
+    input[type="email"],
+    input[type="password"],
+    // react widgets override
+    .rw-widget,
+    .rw-widget:hover,
+    select,
+    textarea,
+    .form-control {
+        padding-right: ($input-padding-x * 3) !important;
+        border-color: $color;
+        // @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
 
-  // Set validation states also for addons
-  .input-group-addon {
-    color: $color;
-    border-color: $color;
-    background-color: lighten($color, 40%);
-  }
-  // Optional feedback icon
-  .form-control-feedback {
-    color: $color;
-  }
+        &:focus {
+            // border-color: darken($border-color, 10%);
+            // $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($border-color, 20%);
+            // @include box-shadow($shadow);
+        }
+    }
+
+    // Set validation states also for addons
+    .input-group-addon {
+        color: $color;
+        border-color: $color;
+        background-color: lighten($color, 40%);
+    }
+    // Optional feedback icon
+    .form-control-feedback {
+        color: $color;
+    }
 }
 
 // Form control focus state
@@ -67,12 +69,12 @@
 // Example usage: change the default blue border and shadow to white for better
 // contrast against a dark gray background.
 @mixin form-control-focus() {
-  &:focus {
-    border-color: $input-border-focus;
-    outline: none;
-    $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $input-box-shadow-focus;
-    @include box-shadow($shadow);
-  }
+    &:focus {
+        border-color: $input-border-focus;
+        outline: none;
+        $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $input-box-shadow-focus;
+        @include box-shadow($shadow);
+    }
 }
 
 // Form control sizing
@@ -82,21 +84,21 @@
 // element gets special love because it's special, and that's a fact!
 
 @mixin input-size($parent, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
-  #{$parent} {
-    height: $input-height;
-    padding: $padding-vertical $padding-horizontal;
-    font-size: $font-size;
-    line-height: $line-height;
-    @include border-radius($border-radius);
-  }
+    #{$parent} {
+        height: $input-height;
+        padding: $padding-vertical $padding-horizontal;
+        font-size: $font-size;
+        line-height: $line-height;
+        @include border-radius($border-radius);
+    }
 
-  select#{$parent} {
-    height: $input-height;
-    line-height: $input-height;
-  }
+    select#{$parent} {
+        height: $input-height;
+        line-height: $input-height;
+    }
 
-  textarea#{$parent},
-  select[multiple]#{$parent} {
-    height: auto;
-  }
+    textarea#{$parent},
+    select[multiple]#{$parent} {
+        height: auto;
+    }
 }

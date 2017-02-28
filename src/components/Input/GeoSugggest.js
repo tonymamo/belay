@@ -5,7 +5,7 @@ class GeoSuggest extends Component {
     componentWillReceiveProps(nextProps) {
         let { field, latitude, longitude } = nextProps;
 
-        if ( !this.props.field.pristine && field.pristine ) {
+        if ( this.props.field && !this.props.field.pristine && field && field.pristine && field.onChange && this.props.field.initialValue !== field.initialValue ) {
             field.onChange(field.initialValue);
             latitude.onChange(latitude.initialValue);
             longitude.onChange(longitude.initialValue);

@@ -53,7 +53,7 @@ class NavList extends React.Component {
 
     render() {
         return (
-            <nav className="list-group" itemProp={this.props.itemProp}>
+            <nav className="list-group">
                 {this.renderNavList()}
             </nav>
         );

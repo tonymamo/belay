@@ -79,7 +79,7 @@ class List extends Component {
     }
 
     render() {
-        const { items, itemsPerPage, usePagination, isLoading, type, itemProp } = this.props;
+        const { items, itemsPerPage, usePagination, isLoading, type } = this.props;
         let content = [];
 
         if ( isLoading ) {

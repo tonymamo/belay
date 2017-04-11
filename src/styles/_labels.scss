@@ -44,6 +44,10 @@ a.label {
   padding-left: $half-spacer;
   padding-right: $half-spacer;
   border-radius: $spacer;
+
+  & + .label--pill {
+    margin-left: $half-spacer;
+  }
 }
 
 

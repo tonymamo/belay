@@ -84,8 +84,7 @@
 //
 
 .media__heading {
-  margin-top: 0;
-  margin-bottom: $half-spacer;
+  margin-bottom: 0; // remove default margin-bottom
 }
 
 

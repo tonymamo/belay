@@ -23,12 +23,12 @@ class GeoSuggest extends Component {
             field.onBlur();
         }
 
-        if ( latitude && latitude.onChange ) {
+        if ( event.location && latitude && latitude.onChange ) {
             latitude.onChange(event.location.lat);
             latitude.onBlur();
         }
 
-        if ( longitude && longitude.onChange ) {
+        if ( event.location && longitude && longitude.onChange ) {
             longitude.onChange(event.location.lng);
             longitude.onBlur();
         }

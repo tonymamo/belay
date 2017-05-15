@@ -14,6 +14,21 @@ class GeoSuggest extends Component {
         }
     }
 
+    onFocus() {
+        const { field, latitude, longitude } = this.props;
+        if ( field && field.onFocus ) {
+            field.onFocus();
+        }
+
+        if ( latitude && latitude.onFocus ) {
+            latitude.onFocus();
+        }
+
+        if ( longitude && longitude.onFocus ) {
+            longitude.onFocus();
+        }
+    }
+
     onGeoSuggestSelect(event) {
         // note that field = location
         const { field, latitude, longitude } = this.props;
@@ -34,17 +49,38 @@ class GeoSuggest extends Component {
         }
     }
 
+    onInputChange(value) {
+        const { field, latitude, longitude } = this.props;
+
+        if ( field && field.onChange ) {
+            field.onChange(value);
+            field.onBlur();
+        }
+
+        if ( latitude && latitude.onChange ) {
+            latitude.onChange(null);
+            latitude.onBlur();
+        }
+
+        if ( longitude && longitude.onChange ) {
+            longitude.onChange(null);
+            longitude.onBlur();
+        }
+    }
+
     render() {
         const { disabled, placeholder, radius, location, field } = this.props;
 
         return (
-            <Geosuggest disabled={disabled}
+            <Geosuggest {...field}
+                        disabled={disabled}
                         placeholder={placeholder}
                         radius={radius}
                         location={location}
+                        onFocus={this.onFocus.bind(this)}
+                        onChange={this.onInputChange.bind(this)}
                         onSuggestSelect={this.onGeoSuggestSelect.bind(this)}
-                        ref={(geo) => this.geo = geo}
-                        {...field}/>
+                        ref={(geo) => this.geo = geo}/>
         );
     }
 }

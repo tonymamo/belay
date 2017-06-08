@@ -1,6 +1,6 @@
 {
   "name": "belay",
-  "version": "1.4.16",
+  "version": "1.4.17",
   "description": "Belay react and sass component library.",
   "main": "index.js",
   "scripts": {

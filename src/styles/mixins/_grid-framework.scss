@@ -25,9 +25,9 @@
     }
     @include media-breakpoint-up($breakpoint) {
       // create --hidden modifier classes to dynamically hide at certain breakpoints
-      .grid__#{$breakpoint}--hidden {
-        display: none !important;
-      }
+      // .grid__#{$breakpoint}--hidden {
+      //   display: none !important;
+      // }
       @for $i from 1 through $columns {
         .grid__#{$breakpoint}-#{$i} {
           @if $enable-flex {

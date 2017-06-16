@@ -2,16 +2,16 @@
 //
 // Set the container width, and override it for fixed navbars in media queries.
 
-.container {
-  @include make-container();
+// .container {
+//   @include make-container();
 
-  // For each breakpoint, define the maximum width of the container in a media query
-  @each $breakpoint, $container-max-width in $container-max-widths {
-    @include media-breakpoint-up($breakpoint) {
-      max-width: $container-max-width;
-    }
-  }
-}
+//   // For each breakpoint, define the maximum width of the container in a media query
+//   @each $breakpoint, $container-max-width in $container-max-widths {
+//     @include media-breakpoint-up($breakpoint) {
+//       max-width: $container-max-width;
+//     }
+//   }
+// }
 
 
 // Fluid container
@@ -45,34 +45,34 @@
 //
 // Custom styles for additional flex alignment options.
 
-@if $enable-flex {
+// @if $enable-flex {
 
-  // Flex column reordering
+//   // Flex column reordering
 
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-      .grid__#{$breakpoint}--first { order: -1; }
-      .grid__#{$breakpoint}--last  { order: 1; }
-    }
-  }
+//   @each $breakpoint in map-keys($grid-breakpoints) {
+//     @include media-breakpoint-up($breakpoint) {
+//       .grid__#{$breakpoint}--first { order: -1; }
+//       .grid__#{$breakpoint}--last  { order: 1; }
+//     }
+//   }
 
-  // Alignment for every column in row
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-      .grid__#{$breakpoint}--top    { align-items: flex-start; }
-      .grid__#{$breakpoint}--center { align-items: center; }
-      .grid__#{$breakpoint}--bottom { align-items: flex-end; }
-    }
-  }
+//   // Alignment for every column in row
+//   @each $breakpoint in map-keys($grid-breakpoints) {
+//     @include media-breakpoint-up($breakpoint) {
+//       .grid__#{$breakpoint}--top    { align-items: flex-start; }
+//       .grid__#{$breakpoint}--center { align-items: center; }
+//       .grid__#{$breakpoint}--bottom { align-items: flex-end; }
+//     }
+//   }
 
-  // Alignment per column
+//   // Alignment per column
 
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-      .grid__#{$breakpoint}--top    { align-self: flex-start; }
-      .grid__#{$breakpoint}--center { align-self: center; }
-      .grid__#{$breakpoint}--bottom { align-self: flex-end; }
-    }
-  }
+//   @each $breakpoint in map-keys($grid-breakpoints) {
+//     @include media-breakpoint-up($breakpoint) {
+//       .grid__#{$breakpoint}--top    { align-self: flex-start; }
+//       .grid__#{$breakpoint}--center { align-self: center; }
+//       .grid__#{$breakpoint}--bottom { align-self: flex-end; }
+//     }
+//   }
 
-}
+// }

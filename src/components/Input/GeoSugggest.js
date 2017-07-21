@@ -69,7 +69,7 @@ class GeoSuggest extends Component {
     }
 
     render() {
-        const { disabled, placeholder, radius, location, field } = this.props;
+        const { disabled, placeholder, radius, location, field, onKeyPress } = this.props;
 
         return (
             <Geosuggest {...field}
@@ -80,6 +80,7 @@ class GeoSuggest extends Component {
                         onFocus={this.onFocus.bind(this)}
                         onChange={this.onInputChange.bind(this)}
                         onSuggestSelect={this.onGeoSuggestSelect.bind(this)}
+                        onKeyPress={onKeyPress}
                         ref={(geo) => this.geo = geo}/>
         );
     }

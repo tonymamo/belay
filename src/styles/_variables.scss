@@ -289,6 +289,11 @@ $transition-time:             .2s !default;
 // Validation States
 //
 
+// Secondary
+$state-secondary-text:       $white !default;
+$state-secondary-bg:         $brand-secondary !default;
+$state-secondary-border:     darken($state-secondary-bg, 5%) !default;
+
 // Success
 $state-success-text:          $white !default;
 $state-success-bg:            $brand-success !default;

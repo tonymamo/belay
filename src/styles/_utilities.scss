@@ -105,6 +105,36 @@
 @include text-emphasis-variant('.text--danger', $brand-danger);
 
 
+// Alternate link colors (default is brand-priamry)
+.link--secondary,
+.link--success,
+.link--info,
+.link--warning,
+.link--danger {
+    text-decoration: $link-decoration;
+
+    @include hover-focus {
+        text-decoration: $link-hover-decoration;
+    }
+
+    &:focus {
+        @include tab-focus();
+    }
+}
+
+.link--secondary { color: $brand-secondary; }
+.link--success { color: $brand-success; }
+.link--info { color: $brand-info; }
+.link--warning { color: $brand-warning; }
+.link--danger { color: $brand-danger; }
+
+.link--secondary:hover { color: $state-secondary-border; }
+.link--success:hover { color: $state-success-border; }
+.link--info:hover { color: $state-info-border; }
+.link--warning:hover { color: $state-warning-border; }
+.link--danger:hover { color: $state-danger-border; }
+
+
 // Contextual backgrounds
 // For now we'll leave these alongside the text classes until v4 when we can
 // safely shift things around (per SemVer rules).

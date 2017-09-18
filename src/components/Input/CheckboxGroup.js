@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 class CheckboxGroup extends Component {
     selectAll(e) {
-        if (e.target.checked) {
+        if ( e.target.checked ) {
             let v = this.props.options.map((item) => item.Key);
             this.props.field.onChange(v);
         } else {
@@ -15,13 +15,14 @@ class CheckboxGroup extends Component {
     }
 
     renderCheckboxOption(option) {
-        const checked = this.props.field.value && (this.props.field.value + '').indexOf(option.Key) !== -1;
+        // this.props.field.value is an array. doing (value+'') joins the array, so we can add a comma and make sure that the index matches exactly the Key value
+        const checked = this.props.field.value && (this.props.field.value + ',').indexOf(`${option.Key},`) !== -1;
         const { inline, disabled } = this.props;
 
         return (
-            <div key={option.Key} className={`${inline ? 'checkbox checkbox--inline' : 'checkbox'}`}>
+            <div key={option.Key} className={inline ? 'checkbox checkbox--inline' : 'checkbox'}>
                 <label title={option.Value}>
-                    <input type='checkbox' name='optionsCheckboxes' value={option.Key} disabled={disabled} checked={checked} onChange={this.checkboxUpdateReduxFormValue.bind(this)}/>
+                    <input type="checkbox" name="optionsCheckboxes" value={option.Key} disabled={disabled} checked={checked} onChange={this.checkboxUpdateReduxFormValue.bind(this)}/>
                     <span>{option.Value}</span>
                 </label>
             </div>
@@ -32,11 +33,11 @@ class CheckboxGroup extends Component {
         let values = this.props.field.value;
         const { checked, value } = input.target;
 
-        if (!Array.isArray(values)) {
+        if ( !Array.isArray(values) ) {
             values = [values];
         }
 
-        if (checked) {
+        if ( checked ) {
             values.push(value);
         } else {
             values = values.filter((item) => item !== value && item !== undefined);
@@ -51,15 +52,15 @@ class CheckboxGroup extends Component {
 
     render() {
         const { options, selectAll, disabled } = this.props;
-        let renderedOptions = [], selectAllOption;
+        let selectAllOption;
 
-        if (selectAll) {
+        if ( selectAll ) {
             selectAllOption = (
-                <div className='checkbox'>
-                    <label title='Select All or None'>
-                        <input type='checkbox'
-                               name='selectAll'
-                               value='selectAll'
+                <div className="checkbox">
+                    <label title="Select All or None">
+                        <input type="checkbox"
+                               name="selectAll"
+                               value="selectAll"
                                onChange={this.selectAll.bind(this)}
                                disabled={disabled}/>
                         Select {!this.state.selectAllToggled ? 'All' : 'None'}
@@ -68,14 +69,12 @@ class CheckboxGroup extends Component {
             );
         }
 
-        options.forEach((option) => {
-            renderedOptions.push(this.renderCheckboxOption(option));
-        });
-
         return (
             <div>
                 {selectAllOption}
-                {renderedOptions}
+                {
+                    options.map((option) => this.renderCheckboxOption(option))
+                }
             </div>
         );
     }

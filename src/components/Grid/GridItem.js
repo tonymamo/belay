@@ -3,9 +3,9 @@ import classNames from 'classnames';
 
 class GridItem extends React.Component {
     render() {
-        const { xs, sm, md, lg, xl, xsOffset, smOffset, mdOffset, lgOffset, xlOffset } = this.props;
+        const { xs, sm, md, lg, xl, xsOffset, smOffset, mdOffset, lgOffset, xlOffset, equalHeight } = this.props;
 
-        var classList = classNames({
+        let classList = classNames({
             [`grid__xs-${xs}`]: xs,
             [`grid__sm-${sm}`]: sm,
             [`grid__md-${md}`]: md,
@@ -17,6 +17,10 @@ class GridItem extends React.Component {
             [`grid__lg--offset-${lgOffset}`]: lgOffset,
             [`grid__xl--offset-${xlOffset}`]: xlOffset
         });
+
+        if ( equalHeight ) {
+            classList += ' equal-height';
+        }
 
         return (
             <div className={classList}>

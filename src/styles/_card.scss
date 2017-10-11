@@ -159,7 +159,7 @@
 // Card image
 .card__img {
   // margin: -1.325rem;
-  @include border-radius(.25rem);
+  @include border-radius($border-radius);
 }
 .card__img-overlay {
   position: absolute;
@@ -174,10 +174,10 @@
 
 // Card image caps
 .card__img--top {
-  @include border-radius(.25rem .25rem 0 0);
+  @include border-radius($border-radius $border-radius 0 0);
 }
 .card__img--bottom {
-  @include border-radius(0 0 .25rem .25rem);
+  @include border-radius(0 0 $border-radius $border-radius);
 }
 
 

@@ -8,13 +8,6 @@ class RadioInput extends Component {
         };
     }
 
-    componentDidMount() {
-        // select the first item if it's available and nothing is selected yet
-        if ( this.props.field && !this.props.field.value && this.props.options && this.props.options.length > 0 ) {
-            this.props.field.onChange(this.props.options[0].Key.toString());
-        }
-    }
-
     renderRadioOptions() {
         const { options } = this.props;
         let renderedOptions = [];
